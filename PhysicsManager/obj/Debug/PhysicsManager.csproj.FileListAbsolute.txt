@@ -1,0 +1,5 @@
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PhysicsManager\bin\Debug\PhysicsManager.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PhysicsManager\bin\Debug\PhysicsManager.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PhysicsManager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PhysicsManager\obj\Debug\PhysicsManager.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PhysicsManager\obj\Debug\PhysicsManager.pdb

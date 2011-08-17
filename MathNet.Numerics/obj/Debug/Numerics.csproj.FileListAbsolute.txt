@@ -1,0 +1,8 @@
+C:\Users\Amichai\Documents\Third Party Source\mathnetnumerics_b382b1690235\out\debug\Net40\MathNet.Numerics.dll
+C:\Users\Amichai\Documents\Third Party Source\mathnetnumerics_b382b1690235\out\debug\Net40\MathNet.Numerics.pdb
+C:\Users\Amichai\Documents\Third Party Source\mathnetnumerics_b382b1690235\src\Numerics\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Amichai\Documents\Third Party Source\mathnetnumerics_b382b1690235\src\Numerics\obj\Debug\MathNet.Numerics.Properties.Resources.resources
+C:\Users\Amichai\Documents\Third Party Source\mathnetnumerics_b382b1690235\src\Numerics\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Amichai\Documents\Third Party Source\mathnetnumerics_b382b1690235\src\Numerics\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Amichai\Documents\Third Party Source\mathnetnumerics_b382b1690235\src\Numerics\obj\Debug\MathNet.Numerics.dll
+C:\Users\Amichai\Documents\Third Party Source\mathnetnumerics_b382b1690235\src\Numerics\obj\Debug\MathNet.Numerics.pdb

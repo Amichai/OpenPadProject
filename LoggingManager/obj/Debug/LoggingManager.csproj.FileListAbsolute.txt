@@ -1,0 +1,5 @@
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\LoggingManager\bin\Debug\LoggingManager.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\LoggingManager\bin\Debug\LoggingManager.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\LoggingManager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\LoggingManager\obj\Debug\LoggingManager.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\LoggingManager\obj\Debug\LoggingManager.pdb

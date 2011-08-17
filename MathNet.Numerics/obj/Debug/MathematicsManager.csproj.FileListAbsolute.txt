@@ -1,0 +1,5 @@
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MathematicsManager\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MathematicsManager\obj\Debug\MathNet.Numerics.Properties.Resources.resources
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MathematicsManager\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MathematicsManager\obj\Debug\GenerateResource.write.1.tlog
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MathematicsManager\obj\Debug\MathNet.Numerics.dll

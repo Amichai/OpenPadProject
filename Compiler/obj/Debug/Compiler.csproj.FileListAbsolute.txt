@@ -1,0 +1,13 @@
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Compiler.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Compiler.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\obj\Debug\Compiler.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\obj\Debug\Compiler.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\IronPython.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\IronPython.Modules.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\IronRuby.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\IronRuby.Libraries.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\IronRuby.Libraries.Yaml.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Microsoft.Dynamic.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Microsoft.Scripting.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Microsoft.Scripting.Metadata.dll
