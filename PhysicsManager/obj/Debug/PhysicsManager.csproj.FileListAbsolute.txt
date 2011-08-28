@@ -3,3 +3,7 @@ C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PhysicsMan
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PhysicsManager\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PhysicsManager\obj\Debug\PhysicsManager.dll
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PhysicsManager\obj\Debug\PhysicsManager.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PhysicsManager\bin\Debug\MathNet.Numerics.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PhysicsManager\bin\Debug\zlib.net.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PhysicsManager\bin\Debug\MathNet.Numerics.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PhysicsManager\bin\Debug\MathNet.Numerics.xml

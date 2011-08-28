@@ -2,18 +2,37 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using MessageHandling;
 
 namespace Compiler {
 	public class Expression {
-		private string textOfCurrentLine;
+		private string input;
+		public Tokens Tokens;
+		public ReturnMessage returnMessage;
+		public List<Token> PostFixedTokens;
+		public ParseTree ParseTree = new ParseTree();
 
 		public Expression(string textOfCurrentLine) {
-			// TODO: Complete member initialization
-			this.textOfCurrentLine = textOfCurrentLine;
+			this.input = textOfCurrentLine;
+			Tokens = new Tokens(input);
+			returnMessage = new ShuntingYard().ConvertToPostFixed(Tokens.AsList());
+			if (returnMessage.Success == false) {
+				//Report failed operation to UI
+			} else {
+				PostFixedTokens = (List<Token>)returnMessage.ReturnValue;
+				//Put postfixed Tokens into the tree
+				foreach (Token t in PostFixedTokens) {
+					returnMessage = ParseTree.AddToken(t);
+					if (returnMessage.Success == false) { }
+
+				}
+			}
+		}
+
+		public Values Evaluate() {
+			throw new NotImplementedException();
 		}
 
 		public string Output { get; set; }
-
-		public Values ReturnValue { get; set; }
 	}
 }

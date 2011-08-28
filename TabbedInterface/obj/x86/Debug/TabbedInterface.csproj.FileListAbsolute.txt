@@ -20,5 +20,5 @@ C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInte
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInterface\bin\Debug\Compiler.pdb
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInterface\bin\Debug\LoggingManager.pdb
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInterface\bin\Debug\zlib.net.dll
-C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInterface\bin\Debug\MathNet.Numerics.dll
-C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInterface\bin\Debug\MathNet.Numerics.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInterface\bin\Debug\MessageHandling.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInterface\bin\Debug\MessageHandling.pdb

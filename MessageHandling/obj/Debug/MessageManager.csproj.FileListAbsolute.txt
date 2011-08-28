@@ -1,0 +1,5 @@
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\bin\Debug\MessageHandling.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\bin\Debug\MessageHandling.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\obj\Debug\MessageHandling.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\obj\Debug\MessageHandling.pdb

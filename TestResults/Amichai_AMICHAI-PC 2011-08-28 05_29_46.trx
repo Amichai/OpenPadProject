@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="989a7ba7-6132-4a52-bc88-764c987a12dd" name="Amichai@AMICHAI-PC 2011-08-28 05:29:46" runUser="Amichai-PC\Amichai" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="bb597171-1561-43ed-9511-ba019d5c2667">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Amichai_AMICHAI-PC 2011-08-28 05_29_46">
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\packages\Antlr.3.1.3.42154\lib\Antlr3.Runtime.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\packages\IronRuby.1.1.3\Lib\IronRuby.Libraries.Yaml.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\IronPython.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\bin\Debug\MessageHandling.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\Microsoft.Scripting.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\IronPython.Modules.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Third Party Source\Iron Python\IronPython_Main\Util\IronRuby\bin\Microsoft.Scripting.Core.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\packages\IronRuby.1.1.3\Lib\IronRuby.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\Microsoft.Scripting.Debugging.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Compiler.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\Microsoft.Dynamic.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\packages\IronRuby.1.1.3\Lib\IronRuby.Libraries.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\packages\IronRuby.1.1.3\Lib\Microsoft.Scripting.Metadata.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-08-28T05:29:46.9337998-04:00" queuing="2011-08-28T05:29:49.6349543-04:00" start="2011-08-28T05:29:49.7119587-04:00" finish="2011-08-28T05:29:52.0790941-04:00" />
+  <ResultSummary outcome="Completed">
+    <Counters total="3" executed="3" passed="3" error="0" failed="0" timeout="0" aborted="0" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="AddListOfTokensTest" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="30e39a90-f3be-1660-60eb-861b64e1492d">
+      <Execution id="62cab485-7696-4ca0-af30-5bbf1f32c7d3" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.ParseTreeTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddListOfTokensTest" />
+    </UnitTest>
+    <UnitTest name="ConvertToPostFixedTest" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="393e2fa0-e364-4f5b-3807-c50f946dec14">
+      <Execution id="5d1e91d9-07d4-4bfd-9216-8b36a819c3bd" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.ShuntingYardTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ConvertToPostFixedTest" />
+    </UnitTest>
+    <UnitTest name="ExpressionConstructorTest" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="724b30c6-4d5d-08ba-f484-0761dfa59453">
+      <Execution id="bcc7b34e-f13c-4797-a0db-3e297d67d189" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.ExpressionTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ExpressionConstructorTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="724b30c6-4d5d-08ba-f484-0761dfa59453" executionId="bcc7b34e-f13c-4797-a0db-3e297d67d189" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="393e2fa0-e364-4f5b-3807-c50f946dec14" executionId="5d1e91d9-07d4-4bfd-9216-8b36a819c3bd" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="30e39a90-f3be-1660-60eb-861b64e1492d" executionId="62cab485-7696-4ca0-af30-5bbf1f32c7d3" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="bcc7b34e-f13c-4797-a0db-3e297d67d189" testId="724b30c6-4d5d-08ba-f484-0761dfa59453" testName="ExpressionConstructorTest" computerName="AMICHAI-PC" duration="00:00:00.0719022" startTime="2011-08-28T05:29:49.7619616-04:00" endTime="2011-08-28T05:29:51.6640704-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="bcc7b34e-f13c-4797-a0db-3e297d67d189">
+    </UnitTestResult>
+    <UnitTestResult executionId="5d1e91d9-07d4-4bfd-9216-8b36a819c3bd" testId="393e2fa0-e364-4f5b-3807-c50f946dec14" testName="ConvertToPostFixedTest" computerName="AMICHAI-PC" duration="00:00:00.0025445" startTime="2011-08-28T05:29:51.7150733-04:00" endTime="2011-08-28T05:29:51.7420748-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="5d1e91d9-07d4-4bfd-9216-8b36a819c3bd">
+    </UnitTestResult>
+    <UnitTestResult executionId="62cab485-7696-4ca0-af30-5bbf1f32c7d3" testId="30e39a90-f3be-1660-60eb-861b64e1492d" testName="AddListOfTokensTest" computerName="AMICHAI-PC" duration="00:00:00.0103782" startTime="2011-08-28T05:29:51.7570757-04:00" endTime="2011-08-28T05:29:51.7830772-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="62cab485-7696-4ca0-af30-5bbf1f32c7d3">
+      <Output>
+        <DebugTrace> | -13
+ | | *25
+ | | | -5
+ | | | | *9
+ | | | | | 3
+ | | | | \ 3
+ | | | \ 4
+ | | \ 5
+ | \ *12
+ |   | 4
+ |   \ 3
+
+</DebugTrace>
+      </Output>
+    </UnitTestResult>
+  </Results>
+</TestRun>

@@ -11,3 +11,9 @@ C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\b
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Microsoft.Dynamic.dll
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Microsoft.Scripting.dll
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Microsoft.Scripting.Metadata.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Microsoft.Scripting.Core.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Microsoft.Scripting.ExtensionAttribute.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Microsoft.Scripting.Debugging.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Antlr3.Runtime.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\MessageHandling.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\MessageHandling.pdb

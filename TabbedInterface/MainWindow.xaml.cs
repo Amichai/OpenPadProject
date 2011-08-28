@@ -117,19 +117,18 @@ namespace TabbedInterface {
 				};
 			}
 
-
 			if (e.Text == "\n") {
 				int offset = textEditor.Document.GetOffset(textEditor.TextArea.Caret.Line, 1);
-				//textEditor.Document.Insert(offset, output);
-				//if (lastValue != null)
-				//    SystemLog.Add(lastValue);
+				textEditor.Document.Insert(offset, output);
+				if (lastValue != null)
+				    SystemLog.Add(lastValue);
 			}
 		}
 		private Compiler.Expression localExpression;
 		
 		private string textOfCurrentLine = string.Empty;
-		//private string output = string.Empty;
-		//private Compiler.Values lastValue;
+		private string output = string.Empty;
+		private Compiler.Values lastValue;
 		
 		void textEditor_TextArea_TextEntering(object sender, TextCompositionEventArgs e) {
 			if (e.Text == "\n") {
@@ -137,9 +136,8 @@ namespace TabbedInterface {
 				textOfCurrentLine = textOfCurrentLine.Trim();
 				localExpression = new Compiler.Expression(textOfCurrentLine);
 				if (localExpression != null) {
-					
-					//output = localExpression.Output;
-					//lastValue = localExpression.ReturnValue;
+					lastValue = localExpression.Evaluate();
+					output = localExpression.Output;
 				}
 			}
 			if (e.Text.Length > 0 && completionWindow != null) {
