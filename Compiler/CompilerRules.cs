@@ -5,7 +5,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 
 namespace Compiler {
-	public static enum TokenType {identifier, numberLiteral, operatorOrPunctuation, none }
+	public enum TokenType {identifier, numberLiteral, operatorOrPunctuation, none }
 	static class Tokenizer {
 		private static HashSet<char> operationsAndPunctuationThatCombine = new HashSet<char>() { ',', '\'', '-', '+', '*', '\\', '/', '%', '^', '=', '&', '#', '@', '!', '.', ':', ';', '|', '?' };
 		private static HashSet<char> atomicPunctuationMarks = new HashSet<char>() { '{', '(', ')', '}' };
@@ -93,22 +93,22 @@ namespace Compiler {
 		private static Node abs(LinkedList<Node> parameters) {
 			if (parameters.Count != 1)
 				throw new Exception("Wrong number of parameters");
-			return new NumberNode(Math.Abs((double)parameters.First().GetValue()));
+			return new NumberNode(Math.Abs(parameters.First().GetValue().AsNum()));
 		}
 		private static Node cos(LinkedList<Node> parameters) {
 			if (parameters.Count != 1)
 				throw new Exception("Wrong number of parameters");
-			return new NumberNode(Math.Cos((double)parameters.First().GetValue()));
+			return new NumberNode(Math.Cos(parameters.First().GetValue().AsNum()));
 		}
 		private static Node sin(LinkedList<Node> parameters) {
 			if (parameters.Count != 1)
 				throw new Exception("Wrong number of parameters");
-			return new NumberNode(Math.Sin((double)parameters.First().GetValue()));
+			return new NumberNode(Math.Sin(parameters.First().GetValue().AsNum()));
 		}
 		private static Node tan(LinkedList<Node> parameters) {
 			if (parameters.Count != 1)
 				throw new Exception("Wrong number of parameters");
-			return new NumberNode(Math.Tan((double)parameters.First().GetValue()));
+			return new NumberNode(Math.Tan(parameters.First().GetValue().AsNum()));
 		}
 		public static Dictionary<string, FunctionInfo> FunctionLookup = new Dictionary<string, FunctionInfo>() {
 			{"abs", new FunctionInfo( new function(abs), 1)},
@@ -144,13 +144,13 @@ namespace Compiler {
 			{"%", new OperatorInfo(2, false, new op(modulus))},
 			{"^", new OperatorInfo(3, true, new op(power))},
 		};
-		public delegate double op(double p1, double p2);
-		static double plus(double p1, double p2) { return p1 + p2; }
-		static double minus(double p1, double p2) { return p1 - p2; }
-		static double times(double p1, double p2) { return p1 * p2; }
-		static double dividedBy(double p1, double p2) { return p1 / p2; }
-		static double modulus(double p1, double p2) { return p1 % p2; }
-		static double power(double p1, double p2) { return Math.Pow(p1, p2); }
+		public delegate Value op(Value p1, Value p2);
+		static Value plus(Value p1, Value p2) { return new Value(p1.AsNum() + p2.AsNum()); }
+		static Value minus(Value p1, Value p2) { return new Value(p1.AsNum() - p2.AsNum()); }
+		static Value times(Value p1, Value p2) { return new Value(p1.AsNum() * p2.AsNum()); }
+		static Value dividedBy(Value p1, Value p2) { return new Value(p1.AsNum() / p2.AsNum()); }
+		static Value modulus(Value p1, Value p2) { return new Value(p1.AsNum() % p2.AsNum()); }
+		static Value power(Value p1, Value p2) { return new Value(Math.Pow(p1.AsNum(), p2.AsNum())); }
 	}
 
 }

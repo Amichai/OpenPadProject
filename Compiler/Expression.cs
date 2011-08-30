@@ -23,14 +23,16 @@ namespace Compiler {
 				//Put postfixed Tokens into the tree
 				foreach (Token t in PostFixedTokens) {
 					returnMessage = ParseTree.AddToken(t);
-					if (returnMessage.Success == false) { }
-
+					if (returnMessage.Success == false) { 
+						//Report the failure to the UI
+					}
 				}
+				Output = ParseTree.SetRoot().Evaluate().ToString();
 			}
 		}
 
-		public Values Evaluate() {
-			throw new NotImplementedException();
+		public Value Evaluate() {
+			return ParseTree.Evaluate();
 		}
 
 		public string Output { get; set; }

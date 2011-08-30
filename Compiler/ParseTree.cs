@@ -44,11 +44,20 @@ namespace Compiler {
 				if (message.Success == false)
 					return message;
 			}
-			root = root.GetChild(1);
+			SetRoot();
 			return new ReturnMessage(true, this);
 		}
 
+		public ParseTree SetRoot() {
+			root = root.GetChild(1);
+			return this;				 
+		}
+
 		public string Visualize() { return root.Visualize(" ", false); }
+
+		public Value Evaluate() {
+			return root.GetValue();
+		}
 	}
 
 	delegate void TreeVisitor(Node nodeData);
@@ -104,7 +113,7 @@ namespace Compiler {
 		}
 		public abstract string GetValueAsString();
 		public abstract void SetValue(LinkedList<Node> childrenToAdd);
-		public abstract object GetValue();
+		public abstract Value GetValue();
 	}
 
 	class NumberNode : Node {
@@ -118,33 +127,33 @@ namespace Compiler {
 		public override void SetValue(LinkedList<Node> childrenToAdd) {
 			throw new Exception("Cannot add children to a number");
 		}
-		public override object GetValue() {
-			return value;
+		public override Value GetValue() {
+			return new Value(value);
 		}
 	}
 
 	class TwoParameterOperatorNode : Node {
-		double value = double.MinValue;
+		Value value = new Value(double.MinValue);
 		public TwoParameterOperatorNode(string op) {
 			this.op = op;
 			NumberOfChildren = 2;
 		}
 		string op;
 		public override string GetValueAsString() {
-			if (value == double.MinValue)
+			if (value.AsNum() == double.MinValue)
 				return this.op;
 			else
 				return this.op + " [" + value.ToString() + "]";
 
 		}
-		public override object GetValue() {
+		public override Value GetValue() {
 			return value;
 		}
 		public override void SetValue(LinkedList<Node> childrenToAdd) {
 			if (childrenToAdd.Count != 2)
 				throw new Exception("A two parameter operator must have two parameters");
 			value = InfixOperators.GetOpInfo[this.op].Compute
-				((double)childrenToAdd.Last().GetValue(), (double)childrenToAdd.First().GetValue());
+				(childrenToAdd.Last().GetValue(), childrenToAdd.First().GetValue());
 			Children = childrenToAdd;
 		}
 	}
@@ -154,8 +163,8 @@ namespace Compiler {
 		public override string GetValueAsString() {
 			return value;
 		}
-		public override object GetValue() {
-			return value;
+		public override Value GetValue() {
+			throw new Exception("This guy is a string");
 		}
 		public override void SetValue(LinkedList<Node> childrenToAdd) {
 			Children = childrenToAdd;
@@ -167,8 +176,8 @@ namespace Compiler {
 		public override string GetValueAsString() {
 			return value.ToString();
 		}
-		public override object GetValue() {
-			return value;
+		public override Value GetValue() {
+			return new Value((double)value);
 		}
 		public override void SetValue(LinkedList<Node> childrenToAdd) {
 			Children = childrenToAdd;
@@ -181,8 +190,8 @@ namespace Compiler {
 		public override string GetValueAsString() {
 			return name + ": " + refernceValue.GetValueAsString();
 		}
-		public override object GetValue() {
-			return refernceValue;
+		public override Value GetValue() {
+			return refernceValue.GetValue();
 		}
 		public override void SetValue(LinkedList<Node> childrenToAdd) {
 			Children = childrenToAdd;
@@ -199,7 +208,7 @@ namespace Compiler {
 		public override string GetValueAsString() {
 			return functionName + " [" + value.GetValueAsString() + "]";
 		}
-		public override object GetValue() {
+		public override Value GetValue() {
 			return value.GetValue();
 		}
 		public override void SetValue(LinkedList<Node> childrenToAdd) {

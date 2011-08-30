@@ -20,6 +20,7 @@ using System.Xml;
 using System.Windows.Threading;
 using Microsoft.Win32;
 using LoggingManager;
+using Compiler;
 
 namespace TabbedInterface {
 	/// <summary>
@@ -119,6 +120,9 @@ namespace TabbedInterface {
 
 			if (e.Text == "\n") {
 				int offset = textEditor.Document.GetOffset(textEditor.TextArea.Caret.Line, 1);
+				if (output == null)
+					//This event needs to be reported to the UI without throwing any exception
+					throw new ArgumentNullException("output");
 				textEditor.Document.Insert(offset, output);
 				if (lastValue != null)
 				    SystemLog.Add(lastValue);
@@ -128,7 +132,7 @@ namespace TabbedInterface {
 		
 		private string textOfCurrentLine = string.Empty;
 		private string output = string.Empty;
-		private Compiler.Values lastValue;
+		private Value lastValue;
 		
 		void textEditor_TextArea_TextEntering(object sender, TextCompositionEventArgs e) {
 			if (e.Text == "\n") {
