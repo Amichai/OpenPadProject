@@ -1,0 +1,5 @@
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Value\bin\Debug\Value.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Value\bin\Debug\Value.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Value\obj\Debug\ResolveAssemblyReference.cache
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Value\obj\Debug\Value.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Value\obj\Debug\Value.pdb

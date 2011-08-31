@@ -22,3 +22,5 @@ C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInte
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInterface\obj\x86\Debug\GenerateResource.write.1.tlog
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInterface\obj\x86\Debug\TabbedInterface.exe
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInterface\obj\x86\Debug\TabbedInterface.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInterface\bin\Debug\Value.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\TabbedInterface\bin\Debug\Value.pdb

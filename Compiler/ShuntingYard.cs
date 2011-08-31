@@ -37,6 +37,7 @@ namespace Compiler {
 							operatorStack.Push(token);
 						else return new ReturnMessage("We only know how to handle functions right now!");
 						//This needs to handle keywords and identifiers as well!
+						//TODO: make a keyword for the word ans and pi
 						break;
 					case TokenType.numberLiteral:
 						postFixedTokens.Add(token);
@@ -50,6 +51,11 @@ namespace Compiler {
 							else
 								while (operatorStack.First().TokenString != "(")
 									postFixedTokens.Add(operatorStack.Pop());
+						} else throw new Exception("Unhandled operator/punctuation mark.");
+						break;
+					case TokenType.atomicOperatorOrPunctuation:
+						if (InfixOperators.GetOpInfo.ContainsKey(token.TokenString)) {
+							handleOperatorPrecedence(token);
 						} else if (token.TokenString == "(")
 							operatorStack.Push(token);
 						else if (token.TokenString == ")") {

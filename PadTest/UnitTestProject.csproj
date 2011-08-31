@@ -42,14 +42,8 @@
     <Reference Include="IronPython.Modules">
       <HintPath>..\..\..\..\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\IronPython.Modules.dll</HintPath>
     </Reference>
-    <Reference Include="IronRuby">
-      <HintPath>..\packages\IronRuby.1.1.3\Lib\IronRuby.dll</HintPath>
-    </Reference>
-    <Reference Include="IronRuby.Libraries">
-      <HintPath>..\packages\IronRuby.1.1.3\Lib\IronRuby.Libraries.dll</HintPath>
-    </Reference>
-    <Reference Include="IronRuby.Libraries.Yaml">
-      <HintPath>..\packages\IronRuby.1.1.3\Lib\IronRuby.Libraries.Yaml.dll</HintPath>
+    <Reference Include="MathNet.Numerics">
+      <HintPath>..\packages\MathNet.Numerics.2011.4.17.0\lib\Net40\MathNet.Numerics.dll</HintPath>
     </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="Microsoft.Dynamic">
@@ -64,9 +58,6 @@
     <Reference Include="Microsoft.Scripting.Debugging">
       <HintPath>..\..\..\..\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\Microsoft.Scripting.Debugging.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.Scripting.Metadata">
-      <HintPath>..\packages\IronRuby.1.1.3\Lib\Microsoft.Scripting.Metadata.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.VisualStudio.QualityTools.UnitTestFramework, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Core">
@@ -74,8 +65,12 @@
     </Reference>
     <Reference Include="System.Data" />
     <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Xml" />
     <Reference Include="System.Xml.Linq" />
+    <Reference Include="zlib.net">
+      <HintPath>..\packages\zlib.net.1.0.3.0\lib\zlib.net.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <CodeAnalysisDependentAssemblyPaths Condition=" '$(VS100COMNTOOLS)' != '' " Include="$(VS100COMNTOOLS)..\IDE\PrivateAssemblies">
@@ -93,9 +88,17 @@
       <Project>{C1E23F05-F4AC-4769-893A-97F43B03B4C5}</Project>
       <Name>Compiler</Name>
     </ProjectReference>
+    <ProjectReference Include="..\LoggingManager\LoggingManager.csproj">
+      <Project>{8E7AA674-6CB2-4DBC-AF29-CB180250AF1D}</Project>
+      <Name>LoggingManager</Name>
+    </ProjectReference>
     <ProjectReference Include="..\MessageHandling\MessageManager.csproj">
       <Project>{B19C4325-8060-46BC-81E6-99D8DE09ADAC}</Project>
       <Name>MessageManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Value\SystemValues.csproj">
+      <Project>{78C7A40C-B78D-47F5-BC1C-C2EF737E8451}</Project>
+      <Name>SystemValues</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />

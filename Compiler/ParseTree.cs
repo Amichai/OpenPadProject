@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MessageHandling;
+using SystemValues;
 
 namespace Compiler {
 	public class ParseTree {
@@ -12,7 +13,7 @@ namespace Compiler {
 		/// <param name="token">Token to add</param>
 		/// <returns>Message about the success of the addition</returns>
 		public ReturnMessage AddToken(Token token) {
-			if (!Tokenizer.GetTokenInfo.ContainsKey(token.TokenType)) {
+			if (!TokenizerRules.GetTokenInfo.ContainsKey(token.TokenType)) {
 				throw new Exception("This token type is not possible here");
 			} else switch (token.TokenType) {
 				case TokenType.identifier:
@@ -31,6 +32,11 @@ namespace Compiler {
 						message = root.AddParent(new TwoParameterOperatorNode(token.TokenString));
 					} else return new ReturnMessage("I don't know how to append this operator/punctuation mark.");
 					break;
+				case TokenType.atomicOperatorOrPunctuation:
+					if (InfixOperators.GetOpInfo.ContainsKey(token.TokenString)) {
+						message = root.AddParent(new TwoParameterOperatorNode(token.TokenString));
+					} else return new ReturnMessage("I don't know how to append this operator/punctuation mark.");
+					break;					
 				default:
 					throw new Exception("Unknown token type");
 			}
@@ -55,7 +61,7 @@ namespace Compiler {
 
 		public string Visualize() { return root.Visualize(" ", false); }
 
-		public Value Evaluate() {
+		public NumericalValue Evaluate() {
 			return root.GetValue();
 		}
 	}
@@ -113,40 +119,46 @@ namespace Compiler {
 		}
 		public abstract string GetValueAsString();
 		public abstract void SetValue(LinkedList<Node> childrenToAdd);
-		public abstract Value GetValue();
+		public abstract NumericalValue GetValue();
 	}
 
 	class NumberNode : Node {
+		public NumberNode(decimal val) {
+			this.value = new NumericalValue(val);
+		}
 		public NumberNode(double val) {
+			this.value = new NumericalValue(val);
+		}
+		public NumberNode(NumericalValue val) {
 			this.value = val;
 		}
-		private double value;
+		private NumericalValue value;
 		public override string GetValueAsString() {
 			return this.value.ToString();
 		}
 		public override void SetValue(LinkedList<Node> childrenToAdd) {
 			throw new Exception("Cannot add children to a number");
 		}
-		public override Value GetValue() {
-			return new Value(value);
+		public override NumericalValue GetValue() {
+			return value;
 		}
 	}
 
 	class TwoParameterOperatorNode : Node {
-		Value value = new Value(double.MinValue);
+		NumericalValue value = new NumericalValue(decimal.MinValue);
 		public TwoParameterOperatorNode(string op) {
 			this.op = op;
 			NumberOfChildren = 2;
 		}
 		string op;
 		public override string GetValueAsString() {
-			if (value.AsNum() == double.MinValue)
+			if (value.AsDecimal() == decimal.MinValue)
 				return this.op;
 			else
 				return this.op + " [" + value.ToString() + "]";
 
 		}
-		public override Value GetValue() {
+		public override NumericalValue GetValue() {
 			return value;
 		}
 		public override void SetValue(LinkedList<Node> childrenToAdd) {
@@ -163,7 +175,7 @@ namespace Compiler {
 		public override string GetValueAsString() {
 			return value;
 		}
-		public override Value GetValue() {
+		public override NumericalValue GetValue() {
 			throw new Exception("This guy is a string");
 		}
 		public override void SetValue(LinkedList<Node> childrenToAdd) {
@@ -176,8 +188,8 @@ namespace Compiler {
 		public override string GetValueAsString() {
 			return value.ToString();
 		}
-		public override Value GetValue() {
-			return new Value((double)value);
+		public override NumericalValue GetValue() {
+			return new NumericalValue((decimal)value);
 		}
 		public override void SetValue(LinkedList<Node> childrenToAdd) {
 			Children = childrenToAdd;
@@ -190,7 +202,7 @@ namespace Compiler {
 		public override string GetValueAsString() {
 			return name + ": " + refernceValue.GetValueAsString();
 		}
-		public override Value GetValue() {
+		public override NumericalValue GetValue() {
 			return refernceValue.GetValue();
 		}
 		public override void SetValue(LinkedList<Node> childrenToAdd) {
@@ -208,7 +220,7 @@ namespace Compiler {
 		public override string GetValueAsString() {
 			return functionName + " [" + value.GetValueAsString() + "]";
 		}
-		public override Value GetValue() {
+		public override NumericalValue GetValue() {
 			return value.GetValue();
 		}
 		public override void SetValue(LinkedList<Node> childrenToAdd) {

@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using MessageHandling;
+using SystemValues;
 
 namespace Compiler {
 	public class Expression {
@@ -31,7 +32,7 @@ namespace Compiler {
 			}
 		}
 
-		public Value Evaluate() {
+		public NumericalValue Evaluate() {
 			return ParseTree.Evaluate();
 		}
 

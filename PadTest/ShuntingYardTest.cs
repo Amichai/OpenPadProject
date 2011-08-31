@@ -75,14 +75,14 @@ namespace PadTest
 					new Token("3", TokenType.numberLiteral), 
 					new Token("4", TokenType.numberLiteral),
 					new Token("*", TokenType.operatorOrPunctuation),
-					new Token("5", TokenType.numberLiteral), 
+					new Token("-5", TokenType.numberLiteral), 
 					new Token("4", TokenType.numberLiteral),
-					new Token("3", TokenType.numberLiteral),
+					new Token("-3", TokenType.numberLiteral),
 					new Token("3", TokenType.numberLiteral), 
 					new Token("*", TokenType.operatorOrPunctuation),
-					new Token("-", TokenType.operatorOrPunctuation),
+					new Token("+", TokenType.operatorOrPunctuation),
 					new Token("*", TokenType.operatorOrPunctuation), 
-					new Token("-", TokenType.operatorOrPunctuation),
+					new Token("+", TokenType.operatorOrPunctuation),
 					});
 			List<Token> returnedTokens = (List<Token>)actual.ReturnValue;
 			List<Token> expectedTokens = (List<Token>)expected.ReturnValue;

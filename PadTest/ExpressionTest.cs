@@ -71,16 +71,16 @@ namespace PadTest
 			Tokens tokens = new Tokens(new System.Collections.Generic.List<Token>(){
 				new Token("3", TokenType.numberLiteral),
 				new Token("+", TokenType.operatorOrPunctuation),
-				new Token("4", TokenType.numberLiteral),
+				new Token("+4", TokenType.numberLiteral),
 				new Token("*", TokenType.operatorOrPunctuation),
 				new Token("334", TokenType.numberLiteral),
-				new Token("-", TokenType.operatorOrPunctuation),
+				new Token("-", TokenType.atomicOperatorOrPunctuation),
 				new Token("te", TokenType.identifier),
 				new Token("33z", TokenType.identifier),
 				new Token("34.3.4", TokenType.numberLiteral),
 				new Token(",", TokenType.operatorOrPunctuation),
-				new Token("(", TokenType.operatorOrPunctuation),
-				new Token(")", TokenType.operatorOrPunctuation),
+				new Token("(", TokenType.atomicOperatorOrPunctuation),
+				new Token(")", TokenType.atomicOperatorOrPunctuation),
 				new Token("||", TokenType.operatorOrPunctuation),
 				new Token(",", TokenType.operatorOrPunctuation)
 			});
@@ -88,6 +88,15 @@ namespace PadTest
 				Assert.AreEqual<string>(tokens.AsList()[i].TokenString, target.Tokens.AsList()[i].TokenString);
 				Assert.AreEqual<TokenType>(tokens.AsList()[i].TokenType, target.Tokens.AsList()[i].TokenType);
 			}
+		}
+		/// <summary>
+		///A test for Expression Constructor
+		///</summary>
+		[TestMethod()]
+		public void ExpressionConstructorTest1() {
+			string textOfCurrentLine = "4+-1(3)(-3)3--3";
+			Expression target = new Expression(textOfCurrentLine);
+			Assert.AreEqual(target.Output, "34");
 		}
 	}
 }

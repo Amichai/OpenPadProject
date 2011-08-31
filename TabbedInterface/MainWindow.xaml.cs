@@ -102,6 +102,28 @@ namespace TabbedInterface {
 
 		CompletionWindow completionWindow;
 
+		TextualContent textualContent = new TextualContent();
+		
+		//Executed prior to key press
+		void textEditor_TextArea_TextEntering(object sender, TextCompositionEventArgs e) {
+			if (e.Text == "\n") {
+				textualContent.SetCurrentLine(
+					textEditor.Document.GetText(
+						textEditor.Document.GetOffset(textEditor.TextArea.Caret.Line, 1), 
+						textEditor.Document.Lines[textEditor.TextArea.Caret.Line - 1].Length)
+							.ToString().Trim());
+			}
+			if (e.Text.Length > 0 && completionWindow != null) {
+				if (!char.IsLetterOrDigit(e.Text[0])) {
+					// Whenever a non-letter is typed while the completion window is open,
+					// insert the currently selected element.
+					completionWindow.CompletionList.RequestInsertion(e);
+				}
+			}
+			// do not set e.Handled=true - we still want to insert the character that was typed
+		}
+
+		//Executed after key press
 		void textEditor_TextArea_TextEntered(object sender, TextCompositionEventArgs e) {
 			if (e.Text == ".") {
 				// open code completion after the user has pressed dot:
@@ -120,39 +142,9 @@ namespace TabbedInterface {
 
 			if (e.Text == "\n") {
 				int offset = textEditor.Document.GetOffset(textEditor.TextArea.Caret.Line, 1);
-				if (output == null)
-					//This event needs to be reported to the UI without throwing any exception
-					throw new ArgumentNullException("output");
-				textEditor.Document.Insert(offset, output);
-				if (lastValue != null)
-				    SystemLog.Add(lastValue);
+				textEditor.Document.Insert(offset, textualContent.GetOutputString());
+				textEditor.Document.Text += "\n";
 			}
-		}
-		private Compiler.Expression localExpression;
-		
-		private string textOfCurrentLine = string.Empty;
-		private string output = string.Empty;
-		private Value lastValue;
-		
-		void textEditor_TextArea_TextEntering(object sender, TextCompositionEventArgs e) {
-			if (e.Text == "\n") {
-				textOfCurrentLine = textEditor.Document.GetText(textEditor.Document.GetOffset(textEditor.TextArea.Caret.Line, 1), textEditor.Document.Lines[textEditor.TextArea.Caret.Line - 1].Length).ToString();
-				textOfCurrentLine = textOfCurrentLine.Trim();
-				localExpression = new Compiler.Expression(textOfCurrentLine);
-				if (localExpression != null) {
-					lastValue = localExpression.Evaluate();
-					output = localExpression.Output;
-				}
-			}
-			if (e.Text.Length > 0 && completionWindow != null) {
-				if (!char.IsLetterOrDigit(e.Text[0])) {
-					// Whenever a non-letter is typed while the completion window is open,
-					// insert the currently selected element.
-					completionWindow.CompletionList.RequestInsertion(e);
-				}
-
-			}
-			// do not set e.Handled=true - we still want to insert the character that was typed
 		}
 
 		#region Folding
