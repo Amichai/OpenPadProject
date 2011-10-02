@@ -29,20 +29,20 @@ namespace Compiler {
 		public List<Token> AsList() {return list;}
 		private List<Token> list = new List<Token>();
 		public Tokens(string input) {
-			tokenConstructor tokenConstructor = new tokenConstructor();
+			tokenFactory tokenFactory = new tokenFactory();
 			string[] inputWords = input.Split(' ', '\n', '\t');
 			foreach (var word in inputWords) {
 				foreach (var c in word) {
-					if(tokenConstructor.PublishTest(c)){
-						addToList(tokenConstructor.PublishToken());
+					if(tokenFactory.PublishTest(c)){
+						addToList(tokenFactory.PublishToken());
 					}
-					tokenConstructor.Add(c);
+					tokenFactory.Add(c);
 				}
-				Token tokenToAdd = tokenConstructor.PublishToken();
+				Token tokenToAdd = tokenFactory.PublishToken();
 				addToList(tokenToAdd);
 			}
 		}
-		private class tokenConstructor {
+		private class tokenFactory {
 			private string tokenString = string.Empty;
 			private TokenType currentTokenType = TokenType.none;
 			internal bool PublishTest(char c) {

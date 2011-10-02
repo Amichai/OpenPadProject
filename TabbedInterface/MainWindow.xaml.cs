@@ -19,8 +19,8 @@ using System.IO;
 using System.Xml;
 using System.Windows.Threading;
 using Microsoft.Win32;
-using LoggingManager;
-using Compiler;
+using System.Runtime.InteropServices;
+
 
 namespace TabbedInterface {
 	/// <summary>
@@ -28,6 +28,7 @@ namespace TabbedInterface {
 	/// </summary>
 	public partial class MainWindow : Window {
 		public MainWindow() {
+			
 			// Load our custom highlighting definition
 			IHighlightingDefinition customHighlighting;
 			using (Stream s = typeof(MainWindow).Assembly.GetManifestResourceStream("TabbedInterface.CustomHighlighting.xshd")) {
@@ -57,7 +58,6 @@ namespace TabbedInterface {
 			foldingUpdateTimer.Interval = TimeSpan.FromSeconds(2);
 			foldingUpdateTimer.Tick += foldingUpdateTimer_Tick;
 			foldingUpdateTimer.Start();
-
 		}
 		string currentFileName;
 
@@ -123,6 +123,7 @@ namespace TabbedInterface {
 			// do not set e.Handled=true - we still want to insert the character that was typed
 		}
 
+
 		//Executed after key press
 		void textEditor_TextArea_TextEntered(object sender, TextCompositionEventArgs e) {
 			if (e.Text == ".") {
@@ -141,10 +142,24 @@ namespace TabbedInterface {
 			}
 
 			if (e.Text == "\n") {
-				int offset = textEditor.Document.GetOffset(textEditor.TextArea.Caret.Line, 1);
-				textEditor.Document.Insert(offset, textualContent.GetOutputString());
+				if (textualContent.LogOrPrintResult() == TextualContent.LogOrPrint.print) {
+					writeText(textualContent.OutputString);
+				} if (textualContent.LogOrPrintResult() == TextualContent.LogOrPrint.log) {
+					printText(textualContent.OutputString);
+				}
+			}
+		}
+
+		void writeText(string textToWrite) {
+			int offset = textEditor.Document.GetOffset(textEditor.TextArea.Caret.Line, 1);
+			if (textToWrite != null) {
+				textEditor.Document.Insert(offset, textToWrite);
 				textEditor.Document.Text += "\n";
 			}
+		}
+		void printText(string textToLog) {
+			if(textToLog !=null)
+				log.Document.Text += textToLog + "\n";
 		}
 
 		#region Folding
@@ -191,6 +206,5 @@ namespace TabbedInterface {
 			}
 		}
 		#endregion
-
 	}
 }

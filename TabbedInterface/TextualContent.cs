@@ -5,31 +5,44 @@ using System.Text;
 using Compiler;
 using LoggingManager;
 using SystemValues;
+using System.Diagnostics;
 
 namespace TabbedInterface {
 	class TextualContent {
+		public enum LogOrPrint { log, print};
 		private string currentLine = string.Empty;
 		private Expression localExpression;
-		private string outputString = string.Empty;
-		private NumericalValue value;
+		public string OutputString {get; set;}
+		public NumericalValue Value = null;
+		string failureMessage = string.Empty;
+		private static int lineNumber = 0;
+
+		public LogOrPrint LogOrPrintResult() {
+			if (OutputString == null)
+				return TextualContent.LogOrPrint.log;
+			else
+				return TextualContent.LogOrPrint.print;
+		}
 
 		public void SetCurrentLine(string line){
+			lineNumber++;
 			currentLine = line;
-			if(currentLine.Count() > 0)
+			Value = null;
+			if(currentLine.Count() > 0){
 				localExpression = new Expression(currentLine);
-			if (localExpression != null) {
-				value = localExpression.Evaluate();
-				outputString = localExpression.Output;
+				if (localExpression.NumericalEvaluation != null) {
+					Value = localExpression.NumericalEvaluation;
+					OutputString = localExpression.OutputString;
+				} else {
+					OutputString = "\""+line+"\" " + localExpression.OutputString;
+				}
 			}
 		}
 
-		internal string GetOutputString() {
-			SystemLog.Add(GetValue(), LogObjectType.value);
-			return outputString;
-		}
-
-		internal NumericalValue GetValue() {
-			return value;
+		public string GetCurrentLine() {
+			if (currentLine != null)
+				return currentLine;
+			else return string.Empty;
 		}
 	}
 }

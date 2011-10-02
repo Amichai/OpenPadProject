@@ -35,9 +35,13 @@ namespace Compiler {
 					case TokenType.identifier:
 						if (Functions.FunctionLookup.ContainsKey(token.TokenString.ToLower()))
 							operatorStack.Push(token);
-						else return new ReturnMessage("We only know how to handle functions right now!");
-						//This needs to handle keywords and identifiers as well!
-						//TODO: make a keyword for the word ans and pi
+						else if (Keywords.KeywordLookup.ContainsKey(token.TokenString.ToLower())) {
+							switch (Keywords.KeywordLookup[token.TokenString.ToLower()].TokenType) {
+								case TokenType.numberLiteral:
+									postFixedTokens.Add(token);
+									break;
+							}
+						} else return new ReturnMessage("Unknown identifier (Shunting yard)");
 						break;
 					case TokenType.numberLiteral:
 						postFixedTokens.Add(token);
@@ -47,11 +51,11 @@ namespace Compiler {
 							handleOperatorPrecedence(token);
 						else if (token.TokenString == ",") {
 							if (operatorStack.Count() == 0)
-								return new ReturnMessage(token.TokenString + " comma and no arguments.");
+								return new ReturnMessage(token.TokenString + " comma and no arguments. (Shunting yard)");
 							else
 								while (operatorStack.First().TokenString != "(")
 									postFixedTokens.Add(operatorStack.Pop());
-						} else throw new Exception("Unhandled operator/punctuation mark.");
+						} else return new ReturnMessage("Unhandled operator/punctuation mark. (Shunting yard)");
 						break;
 					case TokenType.atomicOperatorOrPunctuation:
 						if (InfixOperators.GetOpInfo.ContainsKey(token.TokenString)) {

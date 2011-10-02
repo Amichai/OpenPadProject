@@ -1,0 +1,23 @@
+﻿Build started 9/12/2011 3:43:25 PM.
+     1>Project "C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\CompPhysicsModules\CompPhysicsModules.vcxproj" on node 2 (build target(s)).
+     1>InitializeBuildStatus:
+         Touching "Debug\CompPhysicsModules.unsuccessfulbuild".
+       ClCompile:
+         All outputs are up-to-date.
+         c:\Program Files (x86)\Microsoft Visual Studio 10.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"StdAfx.h" /Fp"Debug\CompPhysicsModules.pch" /Fo"Debug\\" /Fd"Debug\vc100.pdb" /Gd /TP /analyze- /errorReport:prompt CompPhysicsModules.cpp
+         CompPhysicsModules.cpp
+     1>c:\users\amichai\documents\visual studio 2010\projects\openpadproject\compphysicsmodules\compphysicsmodules.cpp(36): error C2062: type 'double' unexpected
+     1>c:\users\amichai\documents\visual studio 2010\projects\openpadproject\compphysicsmodules\compphysicsmodules.cpp(36): error C2143: syntax error : missing ';' before '{'
+     1>c:\users\amichai\documents\visual studio 2010\projects\openpadproject\compphysicsmodules\compphysicsmodules.cpp(36): error C2447: '{' : missing function header (old-style formal list?)
+     1>c:\users\amichai\documents\visual studio 2010\projects\openpadproject\compphysicsmodules\compphysicsmodules.cpp(46): error C2062: type 'double' unexpected
+     1>c:\users\amichai\documents\visual studio 2010\projects\openpadproject\compphysicsmodules\compphysicsmodules.cpp(46): error C2143: syntax error : missing ';' before '{'
+     1>c:\users\amichai\documents\visual studio 2010\projects\openpadproject\compphysicsmodules\compphysicsmodules.cpp(46): error C2447: '{' : missing function header (old-style formal list?)
+     1>c:\users\amichai\documents\visual studio 2010\projects\openpadproject\compphysicsmodules\compphysicsmodules.cpp(55): error C2062: type 'double' unexpected
+     1>c:\users\amichai\documents\visual studio 2010\projects\openpadproject\compphysicsmodules\compphysicsmodules.cpp(55): error C2143: syntax error : missing ';' before '{'
+     1>c:\users\amichai\documents\visual studio 2010\projects\openpadproject\compphysicsmodules\compphysicsmodules.cpp(55): error C2447: '{' : missing function header (old-style formal list?)
+     1>c:\users\amichai\documents\visual studio 2010\projects\openpadproject\compphysicsmodules\compphysicsmodules.cpp(109): error C2661: 'ProjectileLaunch::ProjectileLaunch' : no overloaded function takes 3 arguments
+     1>Done Building Project "C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\CompPhysicsModules\CompPhysicsModules.vcxproj" (build target(s)) -- FAILED.
+
+Build FAILED.
+
+Time Elapsed 00:00:00.68

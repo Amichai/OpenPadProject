@@ -43,6 +43,16 @@
     <Compile Include="ReturnMessage.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\LoggingManager\LoggingManager.csproj">
+      <Project>{8E7AA674-6CB2-4DBC-AF29-CB180250AF1D}</Project>
+      <Name>LoggingManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Value\SystemValues.csproj">
+      <Project>{78C7A40C-B78D-47F5-BC1C-C2EF737E8451}</Project>
+      <Name>SystemValues</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

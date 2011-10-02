@@ -9,17 +9,10 @@ namespace LoggingManager {
 	public static class SystemLog {
 		private static List<systemLogObject> allObjects = new List<systemLogObject>();
 		public static void Add(object obj, LogObjectType type) {
-			switch (type) {
-				case LogObjectType.value:
-					allObjects.Add(new systemLogObject(obj, type));
-					break;
-				default:
-					throw new Exception("Unrecognized type");
-			}
-
+			allObjects.Add(new systemLogObject(obj, type));
 		}
 
-		public static NumericalValue GetLastValue() {
+		public static NumericalValue GetLastNumericalValue() {
 			var query = allObjects.Where(i => i.Type == LogObjectType.value).LastOrDefault().ObjectToLog as NumericalValue;
 			if (query != null)
 				return query;
@@ -27,7 +20,7 @@ namespace LoggingManager {
 				throw new Exception("No results found");
 		}
 	}
-	public enum LogObjectType { value };
+	public enum LogObjectType { value, failureMessage };
 
 	class systemLogObject {
 		private static Stopwatch stopwatch = Stopwatch.StartNew();

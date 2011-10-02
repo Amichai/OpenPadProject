@@ -3,3 +3,11 @@ C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHan
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\obj\Debug\ResolveAssemblyReference.cache
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\obj\Debug\MessageHandling.dll
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\obj\Debug\MessageHandling.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\bin\Debug\LoggingManager.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\bin\Debug\Value.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\bin\Debug\LoggingManager.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\bin\Debug\Value.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\bin\Debug\MathNet.Numerics.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\bin\Debug\zlib.net.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\bin\Debug\MathNet.Numerics.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\bin\Debug\MathNet.Numerics.xml

@@ -4,38 +4,45 @@ using System.Linq;
 using System.Text;
 using MessageHandling;
 using SystemValues;
+using LoggingManager;
 
 namespace Compiler {
 	public class Expression {
 		private string input;
 		public Tokens Tokens;
-		public ReturnMessage returnMessage;
-		public List<Token> PostFixedTokens;
+		private ReturnMessage ReturnMessage;
+		public List<Token> PostFixedTokens; 
 		public ParseTree ParseTree = new ParseTree();
+		public NumericalValue NumericalEvaluation;
+		public string OutputString { get; set; }
+		private string failureMessage { get; set; }
 
 		public Expression(string textOfCurrentLine) {
 			this.input = textOfCurrentLine;
 			Tokens = new Tokens(input);
-			returnMessage = new ShuntingYard().ConvertToPostFixed(Tokens.AsList());
-			if (returnMessage.Success == false) {
-				//Report failed operation to UI
+			ReturnMessage = new ShuntingYard().ConvertToPostFixed(Tokens.AsList());
+			if (ReturnMessage.Success == false) {
+				failureMessage = ReturnMessage.Message;
 			} else {
-				PostFixedTokens = (List<Token>)returnMessage.ReturnValue;
+				PostFixedTokens = (List<Token>)ReturnMessage.ReturnValue;
 				//Put postfixed Tokens into the tree
 				foreach (Token t in PostFixedTokens) {
-					returnMessage = ParseTree.AddToken(t);
-					if (returnMessage.Success == false) { 
-						//Report the failure to the UI
+					ReturnMessage = ParseTree.AddToken(t);
+					if (ReturnMessage.Success == false) { 
+						failureMessage = ReturnMessage.Message;
 					}
 				}
-				Output = ParseTree.SetRoot().Evaluate().ToString();
+			}
+			//Set the outputString
+			if (ReturnMessage.Success) {
+				NumericalEvaluation = ParseTree.SetRoot().Evaluate();
+				SystemLog.Add(NumericalEvaluation, LogObjectType.value);
+				OutputString = NumericalEvaluation.ToString();
+			} else {
+				NumericalEvaluation = null;
+				SystemLog.Add(failureMessage, LogObjectType.failureMessage);
+				OutputString = failureMessage;
 			}
 		}
-
-		public NumericalValue Evaluate() {
-			return ParseTree.Evaluate();
-		}
-
-		public string Output { get; set; }
 	}
 }

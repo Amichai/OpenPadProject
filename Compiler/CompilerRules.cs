@@ -4,14 +4,65 @@ using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
 using SystemValues;
+using LoggingManager;
+using MessageHandling;
+using System.Diagnostics;
 
 namespace Compiler {
+	//Compiler rules
+	//Dictionary with lookup method to classify individual characters
+	//
+
+
 	public enum TokenType {identifier, numberLiteral, operatorOrPunctuation, atomicOperatorOrPunctuation, none }
 	static class TokenizerRules {
-		private static HashSet<char> operationsAndPunctuationThatCombine = new HashSet<char>() { ',', '\'', '*', '\\', '/', '%', '^', '=', '&', '#', '@', '!', '.', ':', ';', '|', '?' };
-		private static HashSet<char> atomicPunctuationMarks = new HashSet<char>() { '{', '(', ')', '}', '+','-' };
-		public static HashSet<string> ClosedBraces = new HashSet<string>() { ")", "}" };
-		public static HashSet<string> OpenBraces = new HashSet<string>() { "(", "{" };
+		public enum CharType {infixOp, syntaxChar, openBrace, closedBrace, postfixOp, plusMinus, digit, letterOrUnderscore };
+		/// <summary>returns null if the passed string isn't found in the dictionary</summary>
+		public static CharInfo GetCharInfo(this Dictionary<string, CharInfo> dictionary, string lookupString) {
+			char asChar = lookupString.ToCharArray().First();
+			if (Char.IsDigit(asChar))
+				return new CharInfo(CharType.digit, false);
+			else if (Char.IsLetter(asChar) || asChar == '_')
+				return new CharInfo(CharType.letterOrUnderscore, false);
+			else if (dictionary.ContainsKey(lookupString)) {
+				return dictionary[lookupString];
+			} else return null;
+		}
+		public static Dictionary<string, CharInfo> CharacterInfo = new Dictionary<string, CharInfo>() {
+			{ ",", new CharInfo(CharType.syntaxChar, false)},
+			{ "\'", new CharInfo(CharType.syntaxChar, false)},
+			{ "*", new CharInfo(CharType.infixOp, false)},
+			{ "\\", new CharInfo(CharType.syntaxChar, false)},
+			{ "/", new CharInfo(CharType.infixOp, false)},
+			{ "%", new CharInfo(CharType.infixOp, false)},
+			{ "^", new CharInfo(CharType.infixOp, false)},
+			{ "=", new CharInfo(CharType.syntaxChar, false)},
+			{ "&", new CharInfo(CharType.syntaxChar, false)},
+			{ "#", new CharInfo(CharType.syntaxChar, false)},
+			{ "@", new CharInfo(CharType.syntaxChar, false)},
+			{ "!", new CharInfo(CharType.postfixOp, false)},
+			{ ".", new CharInfo(CharType.syntaxChar, false)},
+			{ ":", new CharInfo(CharType.syntaxChar, false)},
+			{ ";", new CharInfo(CharType.syntaxChar, false)},
+			{ "|", new CharInfo(CharType.syntaxChar, false)},
+			{ "?", new CharInfo(CharType.syntaxChar, false)},
+			{ "{", new CharInfo(CharType.openBrace, true)},
+			{ "(", new CharInfo(CharType.openBrace, true)},
+			{ "}", new CharInfo(CharType.closedBrace, true)},
+			{ ")", new CharInfo(CharType.closedBrace, true)},
+			{ "+", new CharInfo(CharType.plusMinus, true)},
+			{ "-", new CharInfo(CharType.plusMinus, true)},
+		};
+
+		public class CharInfo {
+			public CharInfo(CharType type, bool atomic) {
+				this.atomic = atomic;
+				this.Type = type;
+			}
+			/// <summary>Does this char combine with other chars</summary>
+			public bool atomic;
+			public CharType Type;
+		}
 		public delegate bool Test(char c);
 		public delegate TokenType Update(char c);
 		private static bool noneBreakTest(char c) {
@@ -19,33 +70,31 @@ namespace Compiler {
 		}
 		/// <summary>Given an identifier token, should I break on this new char c?</summary>
 		private static bool identifierBreakTest(char c) {
-			if (operationsAndPunctuationThatCombine.Contains(c)
-				|| atomicPunctuationMarks.Contains(c)) {
+			if(CharacterInfo.ContainsKey(c.ToString())){
 				return true;
 			} else return false;
 		}
 		private static bool numberLiteralBreakTest(char c) {
 			if (c == '.')
 				return false;
-			else if (operationsAndPunctuationThatCombine.Contains(c)
-				|| atomicPunctuationMarks.Contains(c)) {
+			else if (CharacterInfo.ContainsKey(c.ToString())) {
 				return true;
 			} else return false;
 		}
 		private static bool operationOrPunctuationBreakTest(char c) {
-			if (operationsAndPunctuationThatCombine.Contains(c))
+			if (CharacterInfo.ContainsKey(c.ToString()) && !CharacterInfo[c.ToString()].atomic)
 				return false;
 			else return true;
 		}
 		private static bool atomicOperatorOrPunctuationBreakTest(char c) { return true;  }
 		private static TokenType noneTokenUpdate(char c) {
-			if (char.IsLetter(c) || c == '_')
+			if(CharacterInfo.GetCharInfo(c.ToString()).Type == CharType.letterOrUnderscore)
 				return TokenType.identifier;
 			else if (char.IsNumber(c))
 				return TokenType.numberLiteral;
-			else if (operationsAndPunctuationThatCombine.Contains(c))
+			else if (!CharacterInfo[c.ToString()].atomic)
 				return TokenType.operatorOrPunctuation;
-			else if (atomicPunctuationMarks.Contains(c)) {
+			else if (CharacterInfo[c.ToString()].atomic) {
 				return TokenType.atomicOperatorOrPunctuation;
 			} else throw new Exception("Character unidentified");
 		}
@@ -65,8 +114,7 @@ namespace Compiler {
 			else throw new Exception("Can't append this char to a number. This token should have been published.");
 		}
 		private static TokenType operationTokenUpdate(char c) {
-			if (operationsAndPunctuationThatCombine.Contains(c)
-				|| atomicPunctuationMarks.Contains(c))
+			if (CharacterInfo.ContainsKey(c.ToString()))
 				return TokenType.operatorOrPunctuation;
 			else throw new Exception("Can't append this char to on operator/punctuation mark. This token should have been published.");
 		}
@@ -97,6 +145,11 @@ namespace Compiler {
 			{TokenType.atomicOperatorOrPunctuation, new TokenInfo(new Test(atomicOperatorOrPunctuationBreakTest), 
 														new Update(atomicOperationOrPunctuationUpdate))}
 		};
+
+		//TODO: key word to call computational physics library
+		/// <summary>
+		/// Contains the logic for converting infix tokens to post fixed tokens
+		/// </summary>
 	}
 	static class Functions {
 		public delegate Node function(LinkedList<Node> parameters);
@@ -122,10 +175,10 @@ namespace Compiler {
 			return new NumberNode((decimal)Math.Tan((double)parameters.First().GetValue().AsDecimal()));
 		}
 		public static Dictionary<string, FunctionInfo> FunctionLookup = new Dictionary<string, FunctionInfo>() {
-			{"abs", new FunctionInfo( new function(abs), 1)},
-			{"cos", new FunctionInfo( new function(cos), 1)},
 			{"sin", new FunctionInfo( new function(sin), 1)},
 			{"tan", new FunctionInfo( new function(tan), 1)},
+			{"cos", new FunctionInfo( new function(cos), 1)},
+			{"abs", new FunctionInfo( new function(abs), 1)},
 		};
 		public class FunctionInfo {
 			public FunctionInfo(function func, int numOfParams) {
@@ -136,6 +189,7 @@ namespace Compiler {
 			public int NumberOfParameters;
 		}
 	}
+	//TODO: Fix the order of operations bug by functions
 	static class InfixOperators{
 		public class OperatorInfo {
 			public int PrecedenceValue;
@@ -161,7 +215,86 @@ namespace Compiler {
 		static NumericalValue times(NumericalValue p1, NumericalValue p2) { return new NumericalValue(p1.AsDecimal() * p2.AsDecimal()); }
 		static NumericalValue dividedBy(NumericalValue p1, NumericalValue p2) { return new NumericalValue(p1.AsDecimal() / p2.AsDecimal()); }
 		static NumericalValue modulus(NumericalValue p1, NumericalValue p2) { return new NumericalValue(p1.AsDecimal() % p2.AsDecimal()); }
-		static NumericalValue power(NumericalValue p1, NumericalValue p2) { return new NumericalValue((decimal)Math.Pow((double)p1.AsDecimal(), (double)p2.AsDecimal())); }
+		static NumericalValue power(NumericalValue p1, NumericalValue p2) {
+				return new NumericalValue((decimal)Math.Pow((double)p1.AsDecimal(), (double)p2.AsDecimal()));
+			//TODO: Handle all overflow exceptions
+			//TODO: Catch overflow exceptions
+			//Get a mathematics library that can do computations without overflow or divide by zero
+			//Report to UI or save the value without evaluating
+		}
 	}
-
+	static class Keywords {
+		public static Dictionary<string, KeywordInfo> KeywordLookup = new Dictionary<string, KeywordInfo>() {
+			{"ans", new KeywordInfo(AppendTokenTo.child, TokenType.numberLiteral, new BuildToken(buildAnsToken)) },
+			{"pi", new KeywordInfo(AppendTokenTo.child, TokenType.numberLiteral, new BuildToken(buildPiToken))}
+		};
+		public class KeywordInfo {
+			public KeywordInfo(AppendTokenTo append, TokenType type, BuildToken buildMethod) {
+				this.AppendTokenTo = append;
+				this.TokenType = type;
+				this.BuildMethod = buildMethod;
+			}
+			public AppendTokenTo AppendTokenTo;
+			public TokenType TokenType;
+			public BuildToken BuildMethod;
+		}
+		private static Node buildAnsToken() {
+			return new NumberNode(SystemLog.GetLastNumericalValue());
+		}
+		private static Node buildPiToken(){
+			return new NumberNode(Math.PI);
+		}
+		public delegate Node BuildToken();
+	}
+	public enum AppendTokenTo { parent, child }
+	static class ParseTreeBuilder {
+		public static Dictionary<TokenType, NodeInfo> NodeLookup = new Dictionary<TokenType, NodeInfo>() {
+			{TokenType.numberLiteral,				new NodeInfo(buildNumberNode)},
+			{TokenType.identifier,					new NodeInfo(buildIdentifierNode)},
+			{TokenType.operatorOrPunctuation,		new NodeInfo(buildOperatorOrPunctuationNode)},
+			{TokenType.atomicOperatorOrPunctuation, new NodeInfo(buildAtomicOperatorOrPunctuationNode)},
+		};
+		public class NodeInfo {
+			public BuildParseTreeNode BuildNode;
+			public NodeInfo(BuildParseTreeNode builder) {
+				this.BuildNode = builder;
+			}
+		}
+		private static Node buildAtomicOperatorOrPunctuationNode(Token token) {
+			Node nodeToReturn = null;
+			if (InfixOperators.GetOpInfo.ContainsKey(token.TokenString)) {
+				nodeToReturn = new TwoParameterOperatorNode(token.TokenString);
+				nodeToReturn.AppendMeTo = AppendTokenTo.parent;
+			} return nodeToReturn;
+		}
+		private static Node buildOperatorOrPunctuationNode(Token token) {
+			Node nodeToReturn = null;
+			if (InfixOperators.GetOpInfo.ContainsKey(token.TokenString)) {
+				nodeToReturn = new TwoParameterOperatorNode(token.TokenString);
+				nodeToReturn.AppendMeTo = AppendTokenTo.parent;
+			}
+			return nodeToReturn;
+		}
+		private static Node buildIdentifierNode(Token token) {
+			Node nodeToReturn = null;
+			if (Functions.FunctionLookup.ContainsKey(token.TokenString.ToLower())) {
+				nodeToReturn = new FunctionNode(token.TokenString);
+				nodeToReturn.AppendMeTo = AppendTokenTo.parent;
+			} else if (Keywords.KeywordLookup.ContainsKey(token.TokenString.ToLower())) {
+				nodeToReturn = Keywords.KeywordLookup[token.TokenString.ToLower()].BuildMethod();
+				nodeToReturn.AppendMeTo = Keywords.KeywordLookup[token.TokenString.ToLower()].AppendTokenTo;
+			} 
+			return nodeToReturn;
+		}
+		private static Node buildNumberNode(Token token) {
+			double parsedVal;
+			Node nodeToReturn;
+			if (double.TryParse(token.TokenString, out parsedVal)) {
+				nodeToReturn = new NumberNode(parsedVal);
+				nodeToReturn.AppendMeTo = AppendTokenTo.child;
+				return nodeToReturn;
+			} else return null;
+		}
+		public delegate Node BuildParseTreeNode(Token token);
+	}
 }

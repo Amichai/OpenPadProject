@@ -76,7 +76,7 @@ namespace PadTest
 								postFixed).ReturnValue;
 
 			Debug.Print(actual.Visualize());
-			Assert.Inconclusive("Check the output window and see if the result is correct");
+			//Assert.Inconclusive("Check the output window and see if the result is correct");
 		}
 
 	}

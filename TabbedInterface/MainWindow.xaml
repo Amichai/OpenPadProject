@@ -67,18 +67,26 @@
 			<ad:DockingManager x:Name="dockManager" Grid.Row="1">
 				<ad:ResizingPanel Orientation="Vertical">
 					<ad:DockablePane ad:ResizingPanel.ResizeHeight="100">
+						<ad:DockableContent Title="Canvas" x:Name="Canvas">
+							<Canvas></Canvas>
+						</ad:DockableContent>
 						<ad:DockableContent Title="Debug" x:Name="Debug">
 							<avalonedit:TextEditor />
 						</ad:DockableContent>
 						<ad:DockableContent Title="Log" x:Name="Log">
-							<avalonedit:TextEditor />
+							<avalonedit:TextEditor
+								Name="log"
+								FontFamily="Consolas"
+								FontSize="10pt"
+								SyntaxHighlighting="C#" >
+							</avalonedit:TextEditor>
 						</ad:DockableContent>
 						<ad:DockableContent Title="Main" x:Name="Main">
 							<avalonedit:TextEditor
-					Name="textEditor"
-					FontFamily="Consolas"
-					FontSize="10pt"
-					SyntaxHighlighting="C#" >
+								Name="textEditor"
+								FontFamily="Consolas"
+								FontSize="10pt"
+								SyntaxHighlighting="C#" >
 							</avalonedit:TextEditor>
 						</ad:DockableContent>
 					</ad:DockablePane>
