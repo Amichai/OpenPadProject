@@ -72,6 +72,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Common\Common.csproj">
+      <Project>{D7BCE323-ADC9-4E4C-9DB9-E54E3BE20559}</Project>
+      <Name>Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\LoggingManager\LoggingManager.csproj">
       <Project>{8E7AA674-6CB2-4DBC-AF29-CB180250AF1D}</Project>
       <Name>LoggingManager</Name>

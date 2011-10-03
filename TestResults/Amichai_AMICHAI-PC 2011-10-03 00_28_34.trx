@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<TestRun id="e8604218-6308-4954-963f-50696e46ca3b" name="Amichai@AMICHAI-PC 2011-10-03 00:28:34" runUser="Amichai-PC\Amichai" xmlns="http://microsoft.com/schemas/VisualStudio/TeamTest/2010">
+  <TestSettings name="Local" id="bb597171-1561-43ed-9511-ba019d5c2667">
+    <Description>These are default test settings for a local test run.</Description>
+    <Deployment enabled="false" runDeploymentRoot="Amichai_AMICHAI-PC 2011-10-03 00_28_34">
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\RandomWalker\packages\morelinq.1.0\lib\net35\MoreLinq.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin\Debug\Common.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\IronPython.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\MessageHandling\bin\Debug\MessageHandling.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Compiler\bin\Debug\Compiler.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\Microsoft.Scripting.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\IronPython.Modules.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Third Party Source\Iron Python\IronPython_Main\Util\IronRuby\bin\Microsoft.Scripting.Core.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\packages\MathNet.Numerics.2011.4.17.0\lib\Net40\MathNet.Numerics.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\Microsoft.Scripting.Debugging.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PadTest\bin\Debug\Antlr3.Runtime.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\Microsoft.Dynamic.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Value\bin\Debug\Value.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PadTest\bin\Debug\Oyster.IntX.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\packages\zlib.net.1.0.3.0\lib\zlib.net.dll" />
+      <DeploymentItem filename="C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\LoggingManager\bin\Debug\LoggingManager.dll" />
+    </Deployment>
+    <Execution>
+      <TestTypeSpecific />
+      <AgentRule name="Execution Agents">
+      </AgentRule>
+    </Execution>
+  </TestSettings>
+  <Times creation="2011-10-03T00:28:34.3098049-04:00" queuing="2011-10-03T00:28:36.6809405-04:00" start="2011-10-03T00:28:36.7799462-04:00" finish="2011-10-03T00:30:30.0904272-04:00" />
+  <ResultSummary outcome="Error">
+    <Counters total="11" executed="11" passed="10" error="0" failed="0" timeout="0" aborted="1" inconclusive="0" passedButRunAborted="0" notRunnable="0" notExecuted="0" disconnected="0" warning="0" completed="0" inProgress="0" pending="0" />
+    <RunInfos>
+      <RunInfo computerName="AMICHAI-PC" outcome="Error" timestamp="2011-10-03T00:30:30.0874270-04:00">
+        <Text>Test host process exited unexpectedly.</Text>
+      </RunInfo>
+    </RunInfos>
+  </ResultSummary>
+  <TestDefinitions>
+    <UnitTest name="op_SubtractionTest" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="eccac256-4a35-dcb8-ca68-e5de022a71b7">
+      <Execution id="e6cc985a-4290-47fd-ab5c-99674deae6d7" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.DigitTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="op_SubtractionTest" />
+    </UnitTest>
+    <UnitTest name="op_GreaterThanTest" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="1e2732e3-0764-4a33-689b-c5f3fcba6f6f">
+      <Execution id="fcb005ac-ceba-45d0-952b-ad3da630d46b" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.DigitTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="op_GreaterThanTest" />
+    </UnitTest>
+    <UnitTest name="ConvertToPostFixedTest" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="393e2fa0-e364-4f5b-3807-c50f946dec14">
+      <Execution id="666a251e-3b77-4cc2-bee9-d33edfc939d6" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.ShuntingYardTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ConvertToPostFixedTest" />
+    </UnitTest>
+    <UnitTest name="AddListOfTokensTest" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="30e39a90-f3be-1660-60eb-861b64e1492d">
+      <Execution id="9fd01818-c68c-40f3-9baa-a194ed55c4b9" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.ParseTreeTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddListOfTokensTest" />
+    </UnitTest>
+    <UnitTest name="ExpressionConstructorTest" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="724b30c6-4d5d-08ba-f484-0761dfa59453">
+      <Execution id="4030ddb2-93bd-4669-82c0-f3520a337318" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.ExpressionTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ExpressionConstructorTest" />
+    </UnitTest>
+    <UnitTest name="SubtractTest" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="09368185-db2c-a15d-bdf5-8b6a27ef9d97">
+      <Execution id="6dd7a299-2b77-457b-a132-94276afd2af5" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.IntegerTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="SubtractTest" />
+    </UnitTest>
+    <UnitTest name="ExpressionConstructorTest1" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="4b3f2016-7159-c757-9fd1-64975ab2a8a2">
+      <Execution id="a3f87e04-dcfd-46d3-8818-1b4379a23db5" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.ExpressionTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="ExpressionConstructorTest1" />
+    </UnitTest>
+    <UnitTest name="op_InequalityTest" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="88e07b22-dd2d-fec0-a158-aad12bbd393e">
+      <Execution id="b3d7fef4-72d4-4038-a2e7-c960af7a34f2" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.DigitTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="op_InequalityTest" />
+    </UnitTest>
+    <UnitTest name="AddTest" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="a4fccabe-3919-a61c-ac73-4adbe89e1f22">
+      <Execution id="273a2fe8-7214-406e-97e5-b9ac883e1150" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.IntegerTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="AddTest" />
+    </UnitTest>
+    <UnitTest name="op_LessThanTest" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="db4afe4e-67e3-85e5-0f72-0195c0b93d18">
+      <Execution id="f742c199-7f03-4706-867d-52d2b02b503a" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.DigitTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="op_LessThanTest" />
+    </UnitTest>
+    <UnitTest name="GetFactorsTest" storage="c:\users\amichai\documents\visual studio 2010\projects\openpadproject\padtest\bin\debug\padtest.dll" id="befbd27a-cee9-509a-ef28-1e3ad4356194">
+      <Execution id="15bcda5b-8bc7-4d9b-8e6d-43e4c4824111" />
+      <TestMethod codeBase="C:/Users/Amichai/Documents/Visual Studio 2010/Projects/OpenPadProject/PadTest/bin/Debug/PadTest.DLL" adapterTypeName="Microsoft.VisualStudio.TestTools.TestTypes.Unit.UnitTestAdapter, Microsoft.VisualStudio.QualityTools.Tips.UnitTest.Adapter, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" className="PadTest.BigIntTest, PadTest, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" name="GetFactorsTest" />
+    </UnitTest>
+  </TestDefinitions>
+  <TestLists>
+    <TestList name="Results Not in a List" id="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestList name="All Loaded Results" id="19431567-8539-422a-85d7-44ee4e166bda" />
+  </TestLists>
+  <TestEntries>
+    <TestEntry testId="30e39a90-f3be-1660-60eb-861b64e1492d" executionId="9fd01818-c68c-40f3-9baa-a194ed55c4b9" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="393e2fa0-e364-4f5b-3807-c50f946dec14" executionId="666a251e-3b77-4cc2-bee9-d33edfc939d6" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="724b30c6-4d5d-08ba-f484-0761dfa59453" executionId="4030ddb2-93bd-4669-82c0-f3520a337318" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="4b3f2016-7159-c757-9fd1-64975ab2a8a2" executionId="a3f87e04-dcfd-46d3-8818-1b4379a23db5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="a4fccabe-3919-a61c-ac73-4adbe89e1f22" executionId="273a2fe8-7214-406e-97e5-b9ac883e1150" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="eccac256-4a35-dcb8-ca68-e5de022a71b7" executionId="e6cc985a-4290-47fd-ab5c-99674deae6d7" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="88e07b22-dd2d-fec0-a158-aad12bbd393e" executionId="b3d7fef4-72d4-4038-a2e7-c960af7a34f2" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="db4afe4e-67e3-85e5-0f72-0195c0b93d18" executionId="f742c199-7f03-4706-867d-52d2b02b503a" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="1e2732e3-0764-4a33-689b-c5f3fcba6f6f" executionId="fcb005ac-ceba-45d0-952b-ad3da630d46b" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="09368185-db2c-a15d-bdf5-8b6a27ef9d97" executionId="6dd7a299-2b77-457b-a132-94276afd2af5" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+    <TestEntry testId="befbd27a-cee9-509a-ef28-1e3ad4356194" executionId="15bcda5b-8bc7-4d9b-8e6d-43e4c4824111" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" />
+  </TestEntries>
+  <Results>
+    <UnitTestResult executionId="9fd01818-c68c-40f3-9baa-a194ed55c4b9" testId="30e39a90-f3be-1660-60eb-861b64e1492d" testName="AddListOfTokensTest" computerName="AMICHAI-PC" duration="00:00:00.1154188" startTime="2011-10-03T00:28:36.8339493-04:00" endTime="2011-10-03T00:28:38.8260632-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="9fd01818-c68c-40f3-9baa-a194ed55c4b9">
+      <Output>
+        <DebugTrace> | Tan [-0.84077125540276]
+ | \ + [37]
+ |   | * [25]
+ |   | | + [-5]
+ |   | | | * [-9]
+ |   | | | | 3
+ |   | | | \ -3
+ |   | | \ 4
+ |   | \ -5
+ |   \ * [12]
+ |     | 4
+ |     \ 3
+
+</DebugTrace>
+      </Output>
+    </UnitTestResult>
+    <UnitTestResult executionId="666a251e-3b77-4cc2-bee9-d33edfc939d6" testId="393e2fa0-e364-4f5b-3807-c50f946dec14" testName="ConvertToPostFixedTest" computerName="AMICHAI-PC" duration="00:00:00.0035055" startTime="2011-10-03T00:28:38.8470644-04:00" endTime="2011-10-03T00:28:38.8630654-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="666a251e-3b77-4cc2-bee9-d33edfc939d6">
+    </UnitTestResult>
+    <UnitTestResult executionId="4030ddb2-93bd-4669-82c0-f3520a337318" testId="724b30c6-4d5d-08ba-f484-0761dfa59453" testName="ExpressionConstructorTest" computerName="AMICHAI-PC" duration="00:00:00.0053061" startTime="2011-10-03T00:28:38.8690657-04:00" endTime="2011-10-03T00:28:38.8870667-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="4030ddb2-93bd-4669-82c0-f3520a337318">
+    </UnitTestResult>
+    <UnitTestResult executionId="a3f87e04-dcfd-46d3-8818-1b4379a23db5" testId="4b3f2016-7159-c757-9fd1-64975ab2a8a2" testName="ExpressionConstructorTest1" computerName="AMICHAI-PC" duration="00:00:00.0009999" startTime="2011-10-03T00:28:38.9060678-04:00" endTime="2011-10-03T00:28:38.9190686-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="a3f87e04-dcfd-46d3-8818-1b4379a23db5">
+    </UnitTestResult>
+    <UnitTestResult executionId="273a2fe8-7214-406e-97e5-b9ac883e1150" testId="a4fccabe-3919-a61c-ac73-4adbe89e1f22" testName="AddTest" computerName="AMICHAI-PC" duration="00:00:00.0257908" startTime="2011-10-03T00:28:38.9250689-04:00" endTime="2011-10-03T00:28:38.9620710-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="273a2fe8-7214-406e-97e5-b9ac883e1150">
+    </UnitTestResult>
+    <UnitTestResult executionId="e6cc985a-4290-47fd-ab5c-99674deae6d7" testId="eccac256-4a35-dcb8-ca68-e5de022a71b7" testName="op_SubtractionTest" computerName="AMICHAI-PC" duration="00:00:00.0089084" startTime="2011-10-03T00:28:38.9710715-04:00" endTime="2011-10-03T00:28:38.9950729-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="e6cc985a-4290-47fd-ab5c-99674deae6d7">
+    </UnitTestResult>
+    <UnitTestResult executionId="b3d7fef4-72d4-4038-a2e7-c960af7a34f2" testId="88e07b22-dd2d-fec0-a158-aad12bbd393e" testName="op_InequalityTest" computerName="AMICHAI-PC" duration="00:00:00.0004253" startTime="2011-10-03T00:28:39.0020733-04:00" endTime="2011-10-03T00:28:39.0150740-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="b3d7fef4-72d4-4038-a2e7-c960af7a34f2">
+    </UnitTestResult>
+    <UnitTestResult executionId="f742c199-7f03-4706-867d-52d2b02b503a" testId="db4afe4e-67e3-85e5-0f72-0195c0b93d18" testName="op_LessThanTest" computerName="AMICHAI-PC" duration="00:00:00.0006683" startTime="2011-10-03T00:28:39.0210744-04:00" endTime="2011-10-03T00:28:39.0340751-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="f742c199-7f03-4706-867d-52d2b02b503a">
+    </UnitTestResult>
+    <UnitTestResult executionId="fcb005ac-ceba-45d0-952b-ad3da630d46b" testId="1e2732e3-0764-4a33-689b-c5f3fcba6f6f" testName="op_GreaterThanTest" computerName="AMICHAI-PC" duration="00:00:00.0389077" startTime="2011-10-03T00:28:39.0390754-04:00" endTime="2011-10-03T00:28:39.1720830-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="fcb005ac-ceba-45d0-952b-ad3da630d46b">
+    </UnitTestResult>
+    <UnitTestResult executionId="6dd7a299-2b77-457b-a132-94276afd2af5" testId="09368185-db2c-a15d-bdf5-8b6a27ef9d97" testName="SubtractTest" computerName="AMICHAI-PC" duration="00:00:00.0032822" startTime="2011-10-03T00:28:39.1990846-04:00" endTime="2011-10-03T00:28:39.2230859-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Passed" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="6dd7a299-2b77-457b-a132-94276afd2af5">
+    </UnitTestResult>
+    <UnitTestResult executionId="15bcda5b-8bc7-4d9b-8e6d-43e4c4824111" testId="befbd27a-cee9-509a-ef28-1e3ad4356194" testName="GetFactorsTest" computerName="AMICHAI-PC" duration="00:01:50.8613409" startTime="2011-10-03T00:28:39.2280862-04:00" endTime="2011-10-03T00:30:30.0894271-04:00" testType="13cdc9d9-ddb5-4fa4-a97d-d965ccfc6d4b" outcome="Aborted" testListId="8c84fa94-04c1-424b-9868-57a2d4851a1d" relativeResultsDirectory="15bcda5b-8bc7-4d9b-8e6d-43e4c4824111">
+    </UnitTestResult>
+  </Results>
+</TestRun>

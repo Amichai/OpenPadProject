@@ -25,5 +25,4 @@ C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PadTest\bi
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PadTest\bin\Debug\Common.dll
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PadTest\bin\Debug\MoreLinq.dll
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PadTest\bin\Debug\Common.pdb
-C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PadTest\bin\Debug\Oyster.IntX.dll
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\PadTest\bin\Debug\Oyster.IntX.xml

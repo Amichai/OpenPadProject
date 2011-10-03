@@ -49,10 +49,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Angle.cs" />
-    <Compile Include="BigInt.cs" />
-    <Compile Include="Digit.cs" />
+    <Compile Include="BigNumbers\BigFloat.cs" />
+    <Compile Include="BigNumbers\BigFloatFactory.cs" />
+    <Compile Include="BigNumbers\BigInt.cs" />
+    <Compile Include="BigNumbers\BigIntFactory.cs" />
+    <Compile Include="BigNumbers\BigMath.cs" />
+    <Compile Include="BigNumbers\BigNum.cs" />
+    <Compile Include="BigNumbers\BigNumException.cs" />
+    <Compile Include="BigNumbers\BigNumFactory.cs" />
+    <Compile Include="BigNumbers\BigNumImpl.cs" />
+    <Compile Include="BigNumbers\BigRational.cs" />
+    <Compile Include="BigNumbers\BigRationalFactory.cs" />
+    <Compile Include="ExperimentalUnused\ComputableSet.cs" />
+    <Compile Include="ExperimentalUnused\Digit.cs" />
     <Compile Include="ExtendedLinq.cs" />
-    <Compile Include="Integer.cs" />
+    <Compile Include="ExperimentalUnused\Integer.cs" />
+    <Compile Include="ComputableSet.cs" />
     <Compile Include="Vector.cs" />
     <Compile Include="LineSegment.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -30,7 +30,7 @@ namespace Compiler {
 			return new ReturnMessage(true);
 		}
 
-		/// <summary>For adding a list of postfixed tokens</summary>
+		/// <summary>For adding a list of post fixed tokens</summary>
 		public ReturnMessage AddListOfTokens(List<Token> tokensToAdd) {
 			foreach (Token t in tokensToAdd) {
 				message = AddToken(t);
@@ -54,7 +54,7 @@ namespace Compiler {
 	}
 
 	delegate void TreeVisitor(Node nodeData);
-	/// <summary>Abstract Syntax Tree Data stucture node</summary>
+	/// <summary>Abstract Syntax Tree Data structure node</summary>
 	abstract class Node {
 		public AppendTokenTo AppendMeTo = AppendTokenTo.child;
 		public LinkedList<Node> Children = new LinkedList<Node>();
