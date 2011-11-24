@@ -1,0 +1,19 @@
+Common library
+ - Mathematics Helper 
+    - Geometry
+    - Angle
+    - Vector
+    - Line segment
+    - Numerical – big numbers (python lib)
+ - Graphics Helper
+ - Extended LINQ
+ - Logging and profiling 
+
+Major modules
+ - Random walker
+ - Computational physics units
+ - Semantic network
+ - Dag Development 
+
+Modular UI
+Compiler 

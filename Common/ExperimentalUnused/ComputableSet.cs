@@ -27,8 +27,7 @@ namespace Common{
 			foreach (ComputableSet s in values) {
 				product = s.Times(product);
 			}
-			//return the rational returned from multiplying all the values in the set
-			throw new NotImplementedException();
+			return product;
 		}
 		public override IEnumerable<ComputableSet> GetEnumerator() {
 			return values;

@@ -32,8 +32,21 @@ namespace Common {
 			//TODO: This may be the bug for the ellipse collision detection problem
 		}
 
+		public static bool operator <(Angle an1, Angle an2) {
+			if (an1.theta < an2.theta)
+				return true;
+			else return false;
+		}
+		public static bool operator >(Angle an1, Angle an2) {
+			if (an1.theta > an2.theta)
+				return true;
+			else return false;
+		}
 		public static Angle operator -(Angle an1, Angle an2){
 			return new Angle(an1.theta - an2.theta);
+		}
+		public static Angle operator -(Angle an1) {
+			return an1.Negate();
 		}
 		public static Angle operator +(Angle an1, Angle an2){
 			return new Angle(an1.theta + an2.theta);

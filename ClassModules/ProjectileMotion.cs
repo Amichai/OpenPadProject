@@ -7,7 +7,7 @@ using Common;
 namespace ClassModules {
 	public class EntryPoint{
 		public static void Main() {
-			var t1 = new ProjectileLaunch(10, 9.8).FindAngleToTarget(new Position(2,2)).GetTrajectory();
+			var t1 = new ProjectileLaunch(10, 9.8).FindAngleToTarget(new Position(3,3)).GetTrajectory();
 			var t2 = new ProjectileLaunch(10, new Angle(45, true)).GetTrajectory();
 			var t3 = t2.AdjustAngleBy(new Angle(1, true));
 			//var maximize = new MaximizationIterator(0, 2 * Math.PI);
