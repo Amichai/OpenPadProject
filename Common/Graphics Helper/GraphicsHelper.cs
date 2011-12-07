@@ -105,6 +105,42 @@ namespace  Common{
 			return bitmapReturn;
 		}
 
+		
+		static public Bitmap ConvertDoubleArrayToBitmap(this List<List<int>> doubleArray, Color defaultColor, Func<int,int> scalingFunction) {
+			int width = doubleArray.Count();
+			int height = doubleArray[0].Count();
+			Bitmap bitmapReturn = new Bitmap(width, height);
+			Color pixelColor;
+			for (int i = 0; i < width; i++) {
+				for (int j = 0; j < height; j++) {
+					pixelColor = defaultColor;
+					int scaledPxlVal = scalingFunction(doubleArray[i][j]);
+					pixelColor = Color.FromArgb(scaledPxlVal, scaledPxlVal, scaledPxlVal);
+					bitmapReturn.SetPixel(i, j, pixelColor);
+				}
+			}
+			return bitmapReturn;
+
+		}
+
+		static public Bitmap ConvertDoubleArrayToBitmap(this List<List<int>> doubleArray, Color defaultColor, int maxPxlVal) { 
+			int width = doubleArray.Count();
+			int height = doubleArray[0].Count();
+			Bitmap bitmapReturn = new Bitmap(width, height);
+
+			Color pixelColor;
+
+			for (int i = 0; i < width; i++) {
+				for (int j = 0; j < height; j++) {
+					pixelColor = defaultColor;
+					int scaledPxlVal = (int)((double)(doubleArray[i][j]+1) / (double)(maxPxlVal+1) * 255);
+					pixelColor = Color.FromArgb(scaledPxlVal, scaledPxlVal, scaledPxlVal);
+					bitmapReturn.SetPixel(i, j, pixelColor);
+				}
+			}
+			return bitmapReturn;
+		}
+
 		static public Bitmap ConvertDoubleArrayToBitmap(this List<List<int>> doubleArray, Color defaultColor) {
 			int width = doubleArray.Count();
 			int height = doubleArray[0].Count();

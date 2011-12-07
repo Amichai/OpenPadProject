@@ -2,13 +2,16 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Drawing;
 
 namespace Common {
 	public class ThreeDimArray {
 		List<DoubleArray> allBoards = new List<DoubleArray>();
 		int boardSize;
-		public ThreeDimArray(int numberOfBoards, int boardSize) {
+		int scaledStepSize;
+		public ThreeDimArray(int numberOfBoards, int boardSize, int scaledStepSize) {
 			this.boardSize = boardSize;
+			this.scaledStepSize = scaledStepSize;
 			for (int i = 0; i < numberOfBoards; i++) {
 				allBoards.Add(new DoubleArray(boardSize));
 			}
@@ -17,9 +20,14 @@ namespace Common {
 			allBoards[z].IncrementAt(x, y);
 		}
 		public void SaveToDisk() {
-			for(int i=0; i < allBoards.Count();i++){
+			//TODO: Make a new folder each time to save these images. Add a text file with info about: step size, steps taken, expansion coef, etc.
+			for(int i=0; i < allBoards.Count() - 1;i++){
 				DoubleArray mat = allBoards[i];
-				mat.ToBitmap().Save("test" + i.ToString() + ".bmp");
+				Image bit = mat.ToBitmap() as Image;
+				Graphics g = Graphics.FromImage(bit);
+				int midPoint = boardSize / 2;
+				g.DrawLine(new Pen(Color.Red, 1), new Point(midPoint, midPoint), new Point(midPoint + scaledStepSize, midPoint ));
+				bit.Save("test" + i.ToString() + ".bmp");
 			}
 		}
 	}
