@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Diagnostics;
+using System.Drawing;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace Common {
 	public class SingleVariableEq {
@@ -14,10 +16,6 @@ namespace Common {
 			return this.function(at);
 		}
 		//Graph, minimize, x-y intercepts, solve
-
-		public double DerivativeAt(double at, double epsilon = .0002) {
-			return (Evaluate(at + epsilon / 2) - Evaluate(at - epsilon / 2)) / epsilon;
-		}
 
 		private double simpsonIntegralApproximation(double lowerBound, double upperBound, int approxConstant) {
 			return (2 * rectIntegralApproximation(lowerBound, upperBound, approxConstant)
@@ -66,26 +64,15 @@ namespace Common {
 			}
 			return sum;
 		}
+
+		
 	}
 
 	public class MultiVariableEq : Dictionary<string, Func<double>> {
-		HashSet<string> parameterNames = new HashSet<string>();
-		int numberOfParameters = 0;
-		public void IndependentParameters(params string[] parameters) {
-			this.numberOfParameters = parameters.Count();
-			foreach(string s in parameters)
-				this.parameterNames.Add(s);
-		}
-		public double PartialDerivative(string paramName, double at) {
-			SetParameter(paramName, at);
-			throw new NotImplementedException();
-		}
 		public double Get(string paramName) {
 			return this[paramName]();
 		}
 		public void SetParameter(string paramName, double val) {
-			if (!parameterNames.Contains(paramName))
-				throw new Exception("Undefined variable");
 			if (this.ContainsKey(paramName)) {
 				this[paramName] = () => val;
 			} else this.Add(paramName, () => val);
@@ -93,11 +80,57 @@ namespace Common {
 		/// <summary>
 		/// Takes the partial derivative of one parameter with respect to another
 		/// </summary>
-		public double Partial(string p, string p_2) {
-			throw new NotImplementedException();
+		public double Partial(string dx, string dy, double at, double epsilon = .01) {
+			//this[dy] = () => at + epsilon / 2;
+			//double A = this[dx]();			
+			//this[dy] = () => at - epsilon / 2;
+			//double B = this[dx]();
+			//return (A - B) / epsilon;
+			if (dependentVariables.Contains(dy))
+				throw new Exception("Cannot set a dependent variable");
+			return (Evaluate(dy, at + epsilon / 2, dx) - Evaluate(dy, at - epsilon / 2, dx)) / epsilon;
+
 		}
+		HashSet<string> dependentVariables = new HashSet<string>();
 		public void AddDependentVariable(string paramName, Func<double> del) {
+			dependentVariables.Add(paramName);
 			this.Add(paramName, del);
+		}
+
+		public double Evaluate(string varToSet, double val, string varToObserve) {
+			if (dependentVariables.Contains(varToSet))
+				throw new Exception("Cannot set a dependent variable");
+			this[varToSet] = () => val;
+			return this[varToObserve]();
+		}
+
+		public double Evaluate(string var1, double val1, string var2, double val2, string varToObserve) {
+			this[var1] = () => val1;
+			this[var2] = () => val2;
+			if (dependentVariables.Contains(var1) || dependentVariables.Contains(var2))
+				throw new Exception("Cannot set a dependent variable");
+			return this[varToObserve]();
+		}
+
+		public SingleVariableEq Relate(string var1, string var2) {
+			return new SingleVariableEq(
+				i => Evaluate(var1, i, var2)
+			);
+		}
+
+		public Series TrialData(string xAxis, string yAxis, double xMin, double xMax, double dx) {
+			var series = new Series(xAxis + "-" + yAxis);
+			var eq = Relate(xAxis, yAxis);
+			for (double i = xMin; i <= xMax; i += dx) {
+				series.Points.Add(new DataPoint(i, eq.Evaluate(i)));
+			}
+			series.ChartType = SeriesChartType.Line;
+			series.XAxisType = AxisType.Primary;
+			series.YAxisType = AxisType.Primary;
+			
+			series.ChartArea = "ChartArea1";
+			series.Legend = "Legend1";
+			return series;
 		}
 	}
 }
