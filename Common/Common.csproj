@@ -57,6 +57,7 @@
     <Compile Include="ComputationHelper\Graphing\GraphForm.Designer.cs">
       <DependentUpon>GraphForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComputationHelper\Graphing\GraphingExtensionMethods.cs" />
     <Compile Include="ComputationHelper\Graphing\PlotData.cs" />
     <Compile Include="ComputationHelper\MultiVariableEq.cs" />
     <Compile Include="ComputationHelper\SingleVariableEq.cs" />
