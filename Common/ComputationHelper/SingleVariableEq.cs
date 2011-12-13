@@ -21,6 +21,7 @@ namespace Common{
 		public void Graph(double start, double end, double dx) {
 			Series series = new Series();
 			for (double x = start; x < end; x += dx) {
+				Debug.Print(x.ToString() + ", " + Evaluate(x).ToString());
 				series.Points.Add(new DataPoint(x, Evaluate(x)));
 			}
 			series.ChartType = SeriesChartType.Line;

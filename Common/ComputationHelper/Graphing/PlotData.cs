@@ -23,6 +23,9 @@ namespace Common {
 			this.endVal = endVal;
 			this.stepSize = stepSize;
 		}
+		public void SetNewEq(MultiVariableEq eq){
+			this.eq = eq;
+		}
 
 		public void AddParametricTrial(string p1, string p2, string paremeticVar) {
 			if (eq == null)
@@ -48,7 +51,7 @@ namespace Common {
 		}
 
 		public void AddPoint(double x, double y, string name) {
-			Series ptSer = new Series();
+			Series ptSer = new Series(name);
 			ptSer.Points.Add(new DataPoint(x, y));
 			ptSer.ChartType = SeriesChartType.Point;
 			toPlot.Add(ptSer);
