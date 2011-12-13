@@ -47,11 +47,16 @@ namespace Common {
 			return toPlot.AsEnumerable();
 		}
 
-		internal void AddPoint(double x, double y, string name) {
+		public void AddPoint(double x, double y, string name) {
 			Series ptSer = new Series();
 			ptSer.Points.Add(new DataPoint(x, y));
 			ptSer.ChartType = SeriesChartType.Point;
 			toPlot.Add(ptSer);
+		}
+
+		public void Graph() {
+			Graph graph = new Graph(this);
+			graph.ShowDialog();
 		}
 	}
 }

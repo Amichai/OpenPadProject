@@ -10,11 +10,11 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Diagnostics;
 
 namespace Common {
-	public partial class Chart2 : Form {
-		public Chart2(Series p) {
+	public partial class Graph : Form {
+		public Graph(Series p) {
 			InitializeComponent(new PlotData(p));
 		}
-		public Chart2(PlotData p) {
+		public Graph(PlotData p) {
 			InitializeComponent(p);
 		}
 	}

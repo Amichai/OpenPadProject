@@ -29,8 +29,8 @@ namespace Common{
 
 			series.ChartArea = "ChartArea1";
 			series.Legend = "Legend1";
-			Chart2 chart = new Chart2(series);
-			chart.Show();
+			Graph graph = new Graph(series);
+			graph.ShowDialog();
 		}
 		//Graph, minimize, x-y intercepts, solve
 
