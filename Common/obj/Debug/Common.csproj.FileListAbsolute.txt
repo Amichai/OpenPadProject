@@ -6,3 +6,6 @@ C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\obj
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin\Debug\MoreLinq.dll
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin\Debug\Oyster.IntX.dll
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin\Debug\Oyster.IntX.xml
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\obj\Debug\Common.Chart2.resources
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\obj\Debug\GenerateResource.read.1.tlog
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\obj\Debug\GenerateResource.write.1.tlog
