@@ -38,10 +38,10 @@ namespace Common {
 			toPlot.Add(eq.ParemetricTrial(p1, p2, paremeticVar, startVal, endVal, stepSize, lineName));
 		}
 
-		public void AddTrial(string param1, string param2, string seriesName = null) {
+		public void AddTrial(string xAxis, string yAxis, string seriesName = null) {
 			if (eq == null)
 				throw new NullReferenceException();
-			toPlot.Add(eq.TrialData(param1, param2, startVal, endVal, stepSize, seriesName));
+			toPlot.Add(eq.TrialData(xAxis, yAxis, startVal, endVal, stepSize, seriesName));
 		}
 		public void AddTrial(MultiVariableEq eq, string param1, string param2){
 			toPlot.Add(eq.TrialData(param1, param2, startVal, endVal, stepSize));
