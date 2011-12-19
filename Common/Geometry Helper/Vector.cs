@@ -84,13 +84,12 @@ namespace Common {
 				}
 				yield return componentsToReturn;
 			}
-		}		
+		}
 
 		public static Vector operator -(Vector a, Vector b) {
 			if (a.NumberOfDimensions != b.NumberOfDimensions)
 				throw new Exception("Inconsistent dimensionalities");
 			return new Vector(a.GetX() - b.GetX(), a.GetY() - b.GetY());
-			
 		}
 
 		public double Magnitude() {
