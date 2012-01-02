@@ -25,8 +25,11 @@ namespace Common{
 		public void Graph(double start, double end, double dx) {
 			Series series = new Series();
 			for (double x = start; x < end; x += dx) {
-				Debug.Print(x.ToString() + ", " + Evaluate(x).ToString());
-				series.Points.Add(new DataPoint(x, Evaluate(x)));
+				double y = Evaluate(x);
+				Debug.Print(x.ToString() + ", " + y.ToString());
+				if (!double.IsNaN(y) && y < 1.0e10 && y > -1.0e10) {
+					series.Points.Add(new DataPoint(x, y));
+				} else Debug.Print(x.ToString() + ", " + y.ToString() + ", " + "could not be graphed");
 			}
 			series.ChartType = SeriesChartType.Line;
 			series.XAxisType = AxisType.Primary;
@@ -111,7 +114,25 @@ namespace Common{
 		/// Finds the value x where f(x) = 0
 		/// </summary>
 		public double IterativeSolver(double approx, double xMin, double xMax,
-			double eps, int maxiter) {
+			double eps, int maxiter, out int counter) {
+			int i = 0;
+			counter = i;
+			double x2 = approx;
+			double x1;
+			do {
+				x1 = x2;
+				if (x1 >= xMax || x1 <= xMin) return double.MinValue;
+				if (i > maxiter) return double.MinValue;
+				x2 = this.Evaluate(x1);
+				i++;
+			} while (Math.Abs(x2 - x1) >= eps);
+			approx = x2;
+			counter = i;
+			return approx;
+		}
+
+		public double IterativeSolver(double approx, double xMin, double xMax,
+	double eps, int maxiter) {
 			int i = 0;
 			double x2 = approx;
 			double x1;

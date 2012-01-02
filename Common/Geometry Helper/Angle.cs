@@ -12,6 +12,35 @@ namespace Common {
 		public string ToString() {
 			return this.InDegrees().ToString();
 		}
+
+		public static int GetQuadrant(double angle) {
+			while (angle >= Math.PI * 2)
+				angle -= Math.PI * 2;
+			while( angle< 0 )
+				angle += Math.PI * 2;
+			if (angle >= 0 && angle <= Math.PI / 2)
+				return 1;
+			if (angle > Math.PI / 2 && angle <= Math.PI)
+				return 2;
+			if (angle > Math.PI / 2 && angle <= 3* Math.PI / 2)
+				return 3;
+			if (angle >3 * Math.PI / 2 && angle <= 2*Math.PI)
+				return 4;
+			throw new Exception();
+		}
+
+		public static int GetQuadrant(System.Drawing.Point a, System.Drawing.Point b) {
+			if (b.X - a.X >= 0 && b.Y - a.Y >= 0)
+				return 1;
+			if (b.X - a.X <= 0 && b.Y - a.Y >= 0)
+				return 2;
+			if (b.X - a.X <= 0 && b.Y - a.Y <= 0)
+				return 3;
+			if (b.X - a.X >= 0 && b.Y - a.Y <= 0)
+				return 4;
+			throw new Exception();
+		}
+
 		public Angle(double rise, double run) {
 			//First Quadrant
 			if (Math.Sign(rise) == 1 && Math.Sign(run) == 1) {

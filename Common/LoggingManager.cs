@@ -8,7 +8,7 @@ namespace Common {
 		static Dictionary<Guid, object> allObjects = new Dictionary<Guid, object>();
 		static Dictionary<string, List<Guid>> objectLog = new Dictionary<string, List<Guid>>();
 
-		public static void Add(this object objectToAdd, string[] labels){
+		public static void AddToLog(this object objectToAdd, string[] labels){
 			var id = Guid.NewGuid();
 			allObjects.Add(id, objectToAdd);
 			foreach (string lbl in labels) {

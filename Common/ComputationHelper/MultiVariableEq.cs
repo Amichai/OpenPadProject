@@ -23,6 +23,8 @@ namespace Common {
 			set { functions[i] = () => value; }
 		}
 
+		//UNUSED. I haven't figured out how to implement this yet.
+		//TODO: figure out how to implement this.
 		LinkedList<string> parameterDependenceDAG = new LinkedList<string>();
 
 		public double Get(string paramName) {
@@ -44,14 +46,23 @@ namespace Common {
 
 		HashSet<string> dependentVariables = new HashSet<string>();
 		public void AddDependentVariable(string paramName, Func<double> del) {
-			dependentVariables.Add(paramName);
-			functions.Add(paramName, del);
+			if (!this.Contains(paramName)) {
+				dependentVariables.Add(paramName);
+				functions.Add(paramName, del);
+			} else functions[paramName] = () => del();
 		}
 
 		public void AddSelfDependentVar(string paramName, Func<double,double> del) {
 			new SingleVariableEq(del);
 		}
 
+		public void SetEqToEvalAtZero() {
+			throw new NotImplementedException();
+		}
+
+		public void SetPartialDifferentialEq() {
+			throw new NotImplementedException();
+		}
 
 		public void AddEqParameter(string param, double val) {
 			if (dependentVariables.Contains(param))
@@ -137,12 +148,12 @@ namespace Common {
 		}
 	}
 
-
+	//New and improved multivariable equation keeps track of parameter dependencies which is useful for knowing what can and cannot be evaluated 
+	//and testing for infinite loops.
 	public class MultiVariable {
 		Dictionary<string, Parameter> prmtrs = new Dictionary<string, Parameter>();
 		Dictionary<Parameter, Evaluator> functions = new Dictionary<Parameter, Evaluator>();
 
-		//LinkedList<LinkedListNode<Parameter>> systemParameters = new LinkedList<LinkedListNode<Parameter>>();
 		public MultiVariable(params string[] parameters){
 			foreach (string p in parameters) {
 				prmtrs.Add(p, new Parameter(p));
@@ -177,13 +188,13 @@ namespace Common {
 		}
 		double constantVal = double.MinValue;
 		Func<double> function;
-		SingleVariableEq singleVarToSetToZero;
+		SingleVariableEq singleVarSetToZero;
 		/// <summary>
 		/// This is for resolving variables by setting the equation to zero.
 		/// </summary>
 		public Evaluator(SingleVariableEq function, params Parameter[] parameters) {
 			Dependencies.AddRange(parameters);
-			this.singleVarToSetToZero = function;
+			this.singleVarSetToZero = function;
 			this.constantVal = double.MinValue;
 			this.type = EvaluatorType.setToZero;
 		}
@@ -208,7 +219,7 @@ namespace Common {
 		public double EvalAtZero(double approx,
 			double xMin, double xMax, double eps, int maxiter) {
 				if (type == EvaluatorType.setToZero)
-					return singleVarToSetToZero.NewtonRaphson(.1, .1, .1, .01, 100);
+					return singleVarSetToZero.NewtonRaphson(.1, .1, .1, .01, 100);
 				else throw new Exception();
 		}
 	}

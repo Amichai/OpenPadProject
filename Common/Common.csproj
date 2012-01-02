@@ -51,6 +51,13 @@
     <Reference Include="WindowsBase" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnimationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AnimationForm.Designer.cs">
+      <DependentUpon>AnimationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ComputationHelper\FindZero.cs" />
     <Compile Include="ComputationHelper\Graphing\GraphForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -60,6 +67,8 @@
     <Compile Include="ComputationHelper\Graphing\GraphingExtensionMethods.cs" />
     <Compile Include="ComputationHelper\Graphing\PlotData.cs" />
     <Compile Include="ComputationHelper\MultiVariableEq.cs" />
+    <Compile Include="ComputationHelper\PolynomialEquation.cs" />
+    <Compile Include="ComputationHelper\Sequence.cs" />
     <Compile Include="ComputationHelper\SingleVariableEq.cs" />
     <Compile Include="Arrays\DoubleArray.cs" />
     <Compile Include="Geometry Helper\Equations.cs" />
@@ -90,7 +99,7 @@
     <Compile Include="Arrays\ThreeDimArray.cs" />
     <Compile Include="Geometry Helper\ThreeVector.cs" />
     <Compile Include="Geometry Helper\TwoVector.cs" />
-    <Compile Include="RungeKutta.cs" />
+    <Compile Include="ComputationHelper\RungeKutta.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

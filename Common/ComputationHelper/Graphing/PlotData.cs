@@ -16,6 +16,10 @@ namespace Common {
 		public PlotData(Series ser) {
 			toPlot.Add(ser);
 		}
+		public PlotData(params Series[] ser) {
+			foreach(var s in ser)
+				toPlot.Add(s);
+		}
 		MultiVariableEq eq = null;
 		public PlotData(MultiVariableEq eq, double startVal, double endVal, double stepSize) {
 			this.eq = eq;
