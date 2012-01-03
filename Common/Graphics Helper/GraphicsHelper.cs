@@ -8,6 +8,7 @@ using System.IO;
 using System.Windows.Media;
 using System.Windows;
 using Color = System.Drawing.Color;
+using System.Drawing.Drawing2D;
 
 namespace  Common{
 	public static class Utilities {
@@ -77,6 +78,24 @@ namespace  Common{
 		public static void DrawBounds(this System.Drawing.Bitmap bitmap, Rectangle r) {
 			Graphics g = Graphics.FromImage(bitmap);
 			g.DrawRectangle(new System.Drawing.Pen(System.Drawing.Color.Black), r);
+		}
+
+		static public Bitmap Magnify(this Bitmap bitmap, double magnification) {
+			if (magnification < 1)
+				throw new Exception("this isn't magnification");
+			int width = bitmap.Width;
+			int height = bitmap.Height;
+			int newWidth = (int)(width * magnification);
+			int newHeight = (int)(height* magnification);
+			
+			Bitmap bmp = new Bitmap(bitmap, new System.Drawing.Size(newWidth, newHeight));
+			Graphics graphics = Graphics.FromImage(bmp);
+			graphics.InterpolationMode = InterpolationMode.HighQualityBicubic;
+			graphics.CompositingQuality = CompositingQuality.HighQuality;
+			graphics.SmoothingMode = SmoothingMode.AntiAlias;
+			graphics.DrawImage(bmp, newWidth, newHeight);
+
+			return bmp;
 		}
 
 		static public Bitmap ConvertDoubleArrayToBitmap(this int[][] doubleArray, Color defaultColor) {

@@ -57,6 +57,7 @@
     <Compile Include="AnimationForm.Designer.cs">
       <DependentUpon>AnimationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ComputationHelper\Complex.cs" />
     <Compile Include="ComputationHelper\FindZero.cs" />
     <Compile Include="ComputationHelper\Graphing\GraphForm.cs">
       <SubType>Form</SubType>
