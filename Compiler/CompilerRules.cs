@@ -3,10 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
-using SystemValues;
-using LoggingManager;
-using MessageHandling;
 using System.Diagnostics;
+using Common;
 
 namespace Compiler {
 	//Compiler rules

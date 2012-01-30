@@ -9,7 +9,7 @@ namespace Common {
 			throw new NotImplementedException();
 		}
 
-		public string ToString() {
+		public override string ToString() {
 			return this.InDegrees().ToString();
 		}
 

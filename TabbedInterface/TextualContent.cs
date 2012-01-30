@@ -3,9 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using Compiler;
-using LoggingManager;
-using SystemValues;
 using System.Diagnostics;
+using Common;
 
 namespace TabbedInterface {
 	class TextualContent {

@@ -31,20 +31,8 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="IronPython, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\IronPython.dll</HintPath>
-    </Reference>
-    <Reference Include="IronPython.Modules, Version=2.6.10920.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\IronPython.Modules.dll</HintPath>
-    </Reference>
     <Reference Include="MathNet.Numerics">
       <HintPath>..\packages\MathNet.Numerics.2011.4.17.0\lib\Net40\MathNet.Numerics.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Scripting.Core">
-      <HintPath>..\..\..\..\Third Party Source\Iron Python\IronPython_Main\Util\IronRuby\bin\Microsoft.Scripting.Core.dll</HintPath>
-    </Reference>
-    <Reference Include="Microsoft.Scripting.Debugging, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\Third Party Source\Iron Python\IronPython_Main\Util\IronPython\Microsoft.Scripting.Debugging.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -75,18 +63,6 @@
     <ProjectReference Include="..\Common\Common.csproj">
       <Project>{D7BCE323-ADC9-4E4C-9DB9-E54E3BE20559}</Project>
       <Name>Common</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\LoggingManager\LoggingManager.csproj">
-      <Project>{8E7AA674-6CB2-4DBC-AF29-CB180250AF1D}</Project>
-      <Name>LoggingManager</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\MessageHandling\MessageManager.csproj">
-      <Project>{B19C4325-8060-46BC-81E6-99D8DE09ADAC}</Project>
-      <Name>MessageManager</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\Value\SystemValues.csproj">
-      <Project>{78C7A40C-B78D-47F5-BC1C-C2EF737E8451}</Project>
-      <Name>SystemValues</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

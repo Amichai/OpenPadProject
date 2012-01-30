@@ -2,8 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MessageHandling;
-using SystemValues;
+using Common;
 
 namespace Compiler {
 	public class ParseTree {

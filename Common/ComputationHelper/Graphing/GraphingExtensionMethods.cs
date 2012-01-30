@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Windows.Forms.DataVisualization.Charting;
 
-namespace Common.ComputationHelper.Graphing {
+namespace Common{
 	public static class GraphingExtensionMethods {
 		public static void Graph(this Series ser){
 			if (ser == null)

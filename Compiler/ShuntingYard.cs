@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using MessageHandling;
+using Common;
 
 namespace Compiler {
 	/// <summary>Implements the shunting yard algorithm to convert a list of tokens into a postfixed list

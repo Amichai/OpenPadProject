@@ -4,13 +4,12 @@ using System.Linq;
 using System.Text;
 
 namespace Common {
-	//Todo: Port to common library
-	public class PolynomialEquation {
+	public class PolynomialEq {
 		public List<double> coefficients = new List<double>();
 
 		/// <summary>Takes the coefficients for a polynomial equation. First parameter 
 		/// is for the highest power term.</summary>
-		public PolynomialEquation(params double[] coefficients) {
+		public PolynomialEq(params double[] coefficients) {
 			this.coefficients = coefficients.ToList();
 		}
 		/// <summary>
@@ -25,7 +24,6 @@ namespace Common {
 				derivResult = derivResult * at + evalResult;
 			}
 			evalResult = evalResult * at + coefficients.Last() ;
-
 			return new Tuple<double, double>(evalResult, derivResult);
 		}
 		const int maxRand = 20;
@@ -40,40 +38,46 @@ namespace Common {
 			return result;
 		}
 
-		/// <summary>
-		/// Uses Ruffini's rule
-		/// </summary>
-		/// <param name="root"></param>
-		/// <returns></returns>
-		public PolynomialEquation EliminateRoot(double root) {
-			root = -root;
+		/// <summary>Uses Ruffini's rule</summary>
+		public PolynomialEq EliminateRootNoRemainder(double root) {
 			List<double> tempList = new List<double>(coefficients.Count);
 			List<double> newCoef = new List<double>(coefficients.Count); //last guy is the remainder
 			newCoef.Add(coefficients[0]);
-			for (int i = 1; i < coefficients.Count; i++) {
+			for (int i = 1; i < coefficients.Count - 1; i++) {
 				tempList.Add( newCoef.Last()* root);
-				newCoef.Add(coefficients[i-1] + newCoef.Last());
+				newCoef.Add(coefficients[i] + tempList.Last());
 			}
-			return new PolynomialEquation(newCoef.ToArray());
+			return new PolynomialEq(newCoef.ToArray());
+		}
+
+		public double UpperBound(){
+			int n = this.coefficients.Count-1;
+			List<double> candidates = new List<double>(n){1};
+			for (int i = n; i > 0; i--) {
+				candidates.Add(Math.Abs((coefficients[i] / coefficients[0]) * n)); 
+			}
+			return candidates.Max();
 		}
 
 		public List<double> GetRoots( int maxIter = 100, int maxAttempt = 100, double epsilon = 1.0e-8, double resolution = 1.0e-8) {
-			double largestCoef = coefficients.Max();
-			var absCoef = coefficients.Select(i => Math.Abs(i));
-			var normalizedCoeficients = absCoef.Select(i => i / largestCoef).ToList();
-			List<double> newlist = new List<double>();
-			for (int i = 0; i < coefficients.Count; i++) {
-				newlist.Add(Math.Pow(normalizedCoeficients[i], 1.0/(normalizedCoeficients.Count - i)));
+			double upperBound = UpperBound();
+			PolynomialEq equationToSolve = this;
+			List<double> roots = new List<double>(coefficients.Count);
+			for (int i = 0; i < coefficients.Count - 1; i++) {
+				Func<double, double> eval = j => equationToSolve.EvaluateAndEvaluateTheDerivative(j).Item1;
+				Func<double, double> deriv = j => equationToSolve.EvaluateAndEvaluateTheDerivative(j).Item2;
+				double root = double.MinValue;
+				int counter = 0;
+				while (root == double.MinValue) {
+					double guess = upperBound * rand.NextDouble();
+					root = eval.NewtonRaphson(deriv, guess, -upperBound, upperBound, epsilon, maxIter);
+					if (++counter > 20)
+						throw new Exception("We have not converged yet");
+				}
+				equationToSolve = EliminateRootNoRemainder(root);
+				roots.Add(root);
 			}
-			double upperBound = newlist.Max() * 2;
-
-			Func<double, double> eval = j => EvaluateAndEvaluateTheDerivative(j).Item1;
-			var deriv = new SingleVariableEq(j => EvaluateAndEvaluateTheDerivative(j).Item2);
-			for (int i = 0; i < coefficients.Count; i++) {
-				double root = new SingleVariableEq(eval).NewtonRaphson(deriv, 0.0, -upperBound, upperBound, epsilon, maxIter);
-
-			}
-			throw new NotImplementedException();
+			return roots;
 		}
 	}
 }
