@@ -9,3 +9,7 @@ C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\obj
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\obj\Release\GenerateResource.write.1.tlog
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\obj\Release\Common.dll
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\obj\Release\Common.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin\Release\MathNet.Numerics.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin\Release\zlib.net.dll
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin\Release\MathNet.Numerics.pdb
+C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin\Release\MathNet.Numerics.xml

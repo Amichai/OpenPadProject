@@ -17,5 +17,10 @@ namespace Common {
 		public Graph(PlotData p) {
 			InitializeComponent(p);
 		}
+
+		public Graph(Func<double, Series> variableParameter) {
+			throw new NotImplementedException();
+		}
+		//TODO: Add an overload that implies a variable control which will edit and reload the graph
 	}
 }

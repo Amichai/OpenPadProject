@@ -73,6 +73,7 @@
     </Compile>
     <Compile Include="ComputationHelper\Graphing\GraphingExtensionMethods.cs" />
     <Compile Include="ComputationHelper\Graphing\PlotData.cs" />
+    <Compile Include="ComputationHelper\Graphing\SeriesExtensionMethods.cs" />
     <Compile Include="ComputationHelper\MultiVariableEq.cs" />
     <Compile Include="ComputationHelper\PolynomialEquation.cs" />
     <Compile Include="ComputationHelper\Sequence.cs" />
@@ -94,7 +95,9 @@
     <Compile Include="Geometry Helper\ThreeVector.cs" />
     <Compile Include="Geometry Helper\TwoVector.cs" />
     <Compile Include="ComputationHelper\RungeKutta.cs" />
+    <Compile Include="Random.cs" />
     <Compile Include="ReturnMessage.cs" />
+    <Compile Include="Graphics Helper\UploadedImage.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

@@ -75,6 +75,12 @@ namespace  Common{
 			return uploadedDocument;
 		}
 
+		public static Bitmap CropBitmap(this Bitmap bitmap, Rectangle crop) {
+			   Bitmap bmpCrop = bitmap.Clone(crop,
+						bitmap.PixelFormat);
+			   return bmpCrop;
+		}
+
 		public static void DrawBounds(this System.Drawing.Bitmap bitmap, Rectangle r) {
 			Graphics g = Graphics.FromImage(bitmap);
 			g.DrawRectangle(new System.Drawing.Pen(System.Drawing.Color.Black), r);
@@ -208,6 +214,108 @@ namespace  Common{
 			return extractedContent;
 		}
 
-		///
+		public static Bitmap DrawCircles(double width, double height, List<double> xVals, List<double> yVals, List<double> radii, int magnification) {
+			if (xVals.Count() != yVals.Count() || yVals.Count() != radii.Count())
+				throw new Exception();
+			Bitmap bitmap = new Bitmap((int)(width * magnification), (int)(height * magnification));
+			var G = Graphics.FromImage(bitmap);
+			var p = new System.Drawing.Pen(Color.Black, .1f);
+			for (int i = 0; i < xVals.Count(); i++) {
+				var rect = new Rectangle((int)(xVals[i] * magnification) - (int)(radii[i] * magnification), (int)(yVals[i] * magnification) - (int)(radii[i] * magnification), (int)(radii[i] * magnification * 2), (int)(radii[i] * magnification * 2));
+				G.DrawEllipse(p, rect);
+			}
+			return bitmap;
+		}
+
+		public static char[] ColorConversionChart() {
+			int ncol = 5 * 255;
+			int j, k, l;
+			char[] color = new char[(ncol+1) * 3];
+			for (k = 1; k <= ncol; k++) {
+				j = (ncol - k + 1) / 255;
+				l = (ncol - k + 1) % 255;
+
+				switch (j) {
+					case 0:
+					color[k*3+2]=(char)255 ;
+						color[k*3+1]=(char)l; 
+					color[k*3]=(char)0;
+					break;
+					case 1:
+					color[k*3+2]=(char)(255-l);
+						color[k*3+1]=(char)255; 
+					color[k*3]=(char)0;
+					break;
+					case 2:
+					color[k*3+2]=(char)0;
+						color[k*3+1]=(char)255; 
+					color[k*3]=(char)l;
+					break;
+					case 3:
+					color[k*3+2]=(char)0;
+						color[k*3+1]=(char)(255-l); 
+					color[k*3]=(char)255;
+					break;
+					case 4:
+					color[k*3+2]=(char)l;
+						color[k*3+1]=(char)0; 
+					color[k*3]=(char)255;
+					break;
+					}
+				}
+				  color[0]=(char)0;
+				  color[1]=(char)0;
+				  color[2]=(char)0;
+
+				  return color;
+				}
+
+
+		public static Bitmap ConvertToBitmap(this int[,] doubleArray, char[] ConversionChart) {
+			int width = doubleArray.GetLength(0);
+			int height = doubleArray.GetLength(1);
+			Bitmap bitmapReturn = new Bitmap(width, height);
+
+			Color pixelColor;
+
+			for (int i = 0; i < width; i++) {
+				for (int j = 0; j < height; j++) {
+					var colorIdx = doubleArray[i, j] * 3 % ConversionChart.Count();
+					var A = ConversionChart[colorIdx];
+					var B = ConversionChart[colorIdx + 1];
+					var C = ConversionChart[colorIdx + 2];
+					pixelColor = Color.FromArgb((int)A, (int)B, (int)C);
+					bitmapReturn.SetPixel(i, j, pixelColor);
+				}
+			}
+			return bitmapReturn;
+		}
+		
+
+		public static Bitmap ConvertToBitmap(this int[,] doubleArray, Color defaultColor) {
+			int width = doubleArray.GetLength(0);
+			int height = doubleArray.GetLength(1);
+			Bitmap bitmapReturn = new Bitmap(width, height);
+
+			Color pixelColor;
+
+			for (int i = 0; i < width; i++) {
+				for (int j = 0; j < height; j++) {
+					pixelColor = defaultColor;
+
+					if (doubleArray[i,j] >= 0 && doubleArray[i,j] < 256)
+						pixelColor = Color.FromArgb(doubleArray[i,j], doubleArray[i,j], doubleArray[i,j]);
+					else if (doubleArray[i,j] >= 256 && doubleArray[i,j] < 512)	
+						pixelColor = Color.FromArgb(0, 0, doubleArray[i,j] % 255);
+					else if (doubleArray[i,j] >= 512 && doubleArray[i,j] < 768)
+						pixelColor = Color.FromArgb(0, doubleArray[i,j] % 255, 0);
+					else if (doubleArray[i,j] >= 768 && doubleArray[i,j] < 1024)
+						pixelColor = Color.FromArgb(doubleArray[i,j] % 255, 0, 0);
+
+					bitmapReturn.SetPixel(i, j, pixelColor);
+				}
+			}
+			return bitmapReturn;
+		}
 	}
 }
