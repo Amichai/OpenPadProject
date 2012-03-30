@@ -80,6 +80,7 @@
     <Compile Include="ComputationHelper\SingleVariableEq.cs" />
     <Compile Include="Arrays\DoubleArray.cs" />
     <Compile Include="Geometry Helper\Equations.cs" />
+    <Compile Include="LabeledStorage.cs" />
     <Compile Include="LoggingManager.cs" />
     <Compile Include="Geometry Helper\Angle.cs" />
     <Compile Include="ExtendedLinq.cs" />
