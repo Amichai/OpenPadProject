@@ -79,8 +79,10 @@
     <Compile Include="ComputationHelper\Sequence.cs" />
     <Compile Include="ComputationHelper\SingleVariableEq.cs" />
     <Compile Include="Arrays\DoubleArray.cs" />
+    <Compile Include="DataStructures\Graph.cs" />
+    <Compile Include="DataStructures\TwoWayDictionary.cs" />
     <Compile Include="Geometry Helper\Equations.cs" />
-    <Compile Include="LabeledStorage.cs" />
+    <Compile Include="DataStructures\LabeledStorage.cs" />
     <Compile Include="LoggingManager.cs" />
     <Compile Include="Geometry Helper\Angle.cs" />
     <Compile Include="ExtendedLinq.cs" />
@@ -90,6 +92,7 @@
     <Compile Include="LineSegment.cs" />
     <Compile Include="ComputationHelper\MathExtensionMethods.cs" />
     <Compile Include="NumberObject.cs" />
+    <Compile Include="DataStructures\OneToManyRelationship.cs" />
     <Compile Include="ProgressReport.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Arrays\ThreeDimArray.cs" />
