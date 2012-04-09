@@ -8,8 +8,8 @@ C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin\Debug\Oyster.IntX.xml
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\obj\Debug\GenerateResource.read.1.tlog
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\obj\Debug\GenerateResource.write.1.tlog
-C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\obj\Debug\Common.Graph.resources
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin\Debug\MathNet.Numerics.dll
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin\Debug\zlib.net.dll
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin\Debug\MathNet.Numerics.pdb
 C:\Users\Amichai\Documents\Visual Studio 2010\Projects\OpenPadProject\Common\bin\Debug\MathNet.Numerics.xml
+C:\Users\Amichai\documents\visual studio 2010\Projects\OpenPadProject\Common\obj\Debug\Common.GraphForm.resources

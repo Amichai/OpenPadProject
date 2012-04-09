@@ -62,7 +62,7 @@ namespace Common {
 		}
 
 		public void Graph() {
-			Graph graph = new Graph(this);
+			GraphForm graph = new GraphForm(this);
 			graph.ShowDialog();
 		}
 	}

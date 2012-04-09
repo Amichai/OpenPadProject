@@ -7,7 +7,6 @@ using System.Drawing;
 namespace Common {
 	//TODO: replace GUID with a custom lightweight version and
 	//have data structure keep track of the largest counter values.
-	[Serializable]
 	public class OneToManyRelationship<T1, T2> {
 		public bool Add(T1 key) {
 			Guid keyID = getKeyId(key);
@@ -100,6 +99,15 @@ namespace Common {
 			foreach (var key in allKeys.Keys) {
 				
 			}
+		}
+
+		public List<T2> this[T1 i]{
+			get{
+				return LookupKey(i);
+			}
+			set {
+				Add(i);
+			}		
 		}
 	}
 }

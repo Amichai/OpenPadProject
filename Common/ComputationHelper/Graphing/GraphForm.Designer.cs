@@ -3,7 +3,7 @@ using System.Data;
 using System;
 using System.Collections.Generic;
 namespace Common {
-	partial class Graph {
+	partial class GraphForm {
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>

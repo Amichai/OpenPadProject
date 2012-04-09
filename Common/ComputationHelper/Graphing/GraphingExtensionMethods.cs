@@ -9,7 +9,7 @@ namespace Common{
 		public static void Graph(this Series ser){
 			if (ser == null)
 				throw new NullReferenceException();
-			new Graph(ser).ShowDialog();
+			new GraphForm(ser).ShowDialog();
 		}
 
 		public static void Graph(this Series ser, int numberOfItemsToGraph) {
@@ -20,7 +20,7 @@ namespace Common{
 			for(int i=0;i < numberOfItemsToGraph; i++){
 				ser2.Points.AddXY(ser.Points[i].XValue, ser.Points[i].YValues.First());
 			}
-			new Graph(ser2).ShowDialog();
+			new GraphForm(ser2).ShowDialog();
 		}
 
 		public static void Graph(this List<double> vals) {
@@ -28,7 +28,7 @@ namespace Common{
 			for (int i = 0; i < vals.Count; i++) {
 				ser.Points.AddXY(i + 1, vals[i]);
 			}
-			new Graph(ser).ShowDialog();
+			new GraphForm(ser).ShowDialog();
 		}
 	}
 }

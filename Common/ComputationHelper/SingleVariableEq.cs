@@ -37,7 +37,7 @@ namespace Common{
 
 			series.ChartArea = "ChartArea1";
 			series.Legend = "Legend1";
-			Graph graph = new Graph(series);
+			GraphForm graph = new GraphForm(series);
 			graph.ShowDialog();
 		}
 		//Graph, minimize, x-y intercepts, solve

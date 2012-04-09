@@ -10,15 +10,15 @@ using System.Windows.Forms.DataVisualization.Charting;
 using System.Diagnostics;
 
 namespace Common {
-	public partial class Graph : Form {
-		public Graph(Series p) {
+	public partial class GraphForm : Form {
+		public GraphForm(Series p) {
 			InitializeComponent(new PlotData(p));
 		}
-		public Graph(PlotData p) {
+		public GraphForm(PlotData p) {
 			InitializeComponent(p);
 		}
 
-		public Graph(Func<double, Series> variableParameter) {
+		public GraphForm(Func<double, Series> variableParameter) {
 			throw new NotImplementedException();
 		}
 		//TODO: Add an overload that implies a variable control which will edit and reload the graph
